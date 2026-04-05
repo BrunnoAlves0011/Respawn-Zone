@@ -49,46 +49,46 @@ body {
 .nav-right a {
     color: white;
 }
+
 /* dropdown */
 .dropdown {
-  position: relative;
+    position: relative;
 }
 
 /* caixa */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  background-color: #1b2838;
-  min-width: 180px;
-  border-radius: 6px;
-  overflow: hidden;
-
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-  z-index: 1000;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1b2838;
+    min-width: 180px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    z-index: 1000;
 }
 
 /* links */
 .dropdown-content a {
-  display: block;
-  padding: 10px;
-  color: #c7d5e0;
-  text-decoration: none;
-  transition: 0.2s;
+    display: block;
+    padding: 10px;
+    color: #c7d5e0;
+    text-decoration: none;
+    transition: 0.2s;
 }
 
 /* hover */
 .dropdown-content a:hover {
-  background-color: #2a475e;
-  padding-left: 15px;
+    background-color: #2a475e;
+    padding-left: 15px;
 }
 
 /* aparecer */
 .dropdown:hover .dropdown-content {
-  display: block;
+    display: block;
 }
+
 /* MENU */
 .categories-bar {
     display: flex;
@@ -118,6 +118,7 @@ body {
 
 /* CARD */
 .card-jogo {
+    position: relative; /* 🔥 CORREÇÃO PRINCIPAL */
     background: #1b2838;
     border-radius: 10px;
     overflow: hidden;
@@ -172,33 +173,43 @@ body {
 
 /* BOTÃO */
 .card-jogo button {
-  box-shadow: 0 0 10px rgba(6, 191, 255, 0.4);
+    background: linear-gradient(135deg, #06bfff, #2d73ff);
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(6, 191, 255, 0.4);
 }
 
 .card-jogo button:hover {
-  box-shadow: 0 0 15px rgba(6, 191, 255, 0.8);
+    background: linear-gradient(135deg, #2d73ff, #06bfff);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(6, 191, 255, 0.8);
 }
 
-.card-jogo button:hover {
-  background: linear-gradient(135deg, #2d73ff, #06bfff);
-  transform: scale(1.05);
-}
-.card-jogo button {
-  background: linear-gradient(135deg, #06bfff, #2d73ff);
-  border: none;
-  color: white;
-  padding: 10px;
-  width: 90%;
-  margin: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
 /* VER MAIS */
 .ver-mais {
     color: #66c0f4;
     cursor: pointer;
     font-size: 13px;
     margin-left: 10px;
+}
+
+/* DESCONTO */
+.desconto {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #00c853;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10;
 }
