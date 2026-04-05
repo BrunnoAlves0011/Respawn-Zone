@@ -133,11 +133,15 @@ body {
 /* CARD */
 .card-jogo {
     position: relative; /* 🔥 CORREÇÃO PRINCIPAL */
+    display: flex;
+    flex-direction: column;
+    /* align-self: flex-start; */
+    height: max-content;
     background: #1b2838;
     border-radius: 10px;
     overflow: hidden;
     color: #c7d5e0;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
 }
 
 /* HOVER */
@@ -172,6 +176,17 @@ body {
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
+/* Adicionado para botão Ver mais e Ver menos */
+.sinopse-container {
+    max-height: 120px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.card-jogo.ativo .sinopse-container {
+    max-height: 500px; 
+    transition: max-height 0.3s ease;
+}
 
 /* EXPANDIR */
 .card-jogo.ativo .sinopse {
@@ -182,7 +197,8 @@ body {
 .preco {
     color: #2d73ff;
     font-weight: bold;
-    margin: 10px;
+    /* margin: 10px; */
+    margin-left: 10px;
 }
 
 /* BOTÃO */
@@ -331,7 +347,7 @@ body {
     align-items: center;
 }
 .banner-item {
-    background-image: url('elden.jpg/elden.jpg');
+    background-image: url('../img/elden.jpg');
     background-size: cover;
     background-position: center;
     height: 500px;
