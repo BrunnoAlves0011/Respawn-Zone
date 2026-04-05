@@ -37,17 +37,17 @@ body {
     border: none;
     background-color: #262323;
     color: white;
+    font-weight: bold;
 }
-
 .search-box button {
     padding: 10px;
-    background: #250375;
+    background: #1a044d;
     border: none;
     cursor: pointer;
 }
 
 .nav-right a {
-    color: #fff;
+    color: white;
 }
 /* dropdown */
 .dropdown {
@@ -93,7 +93,7 @@ body {
 .categories-bar {
     display: flex;
     justify-content: center;
-    background-color: #250375;
+    background-color: #1a044d;
     padding: 12px 0;
 }
 
