@@ -180,14 +180,14 @@ body {
 
 /* PREÇO */
 .preco {
-    color: #66c0f4;
+    color: #2d73ff;
     font-weight: bold;
     margin: 10px;
 }
 
 /* BOTÃO */
 .card-jogo button {
-    background: linear-gradient(135deg, #06bfff, #2d73ff);
+    background: linear-gradient(135deg, #1a044d, #062159);
     border: none;
     color: white;
     padding: 10px;
