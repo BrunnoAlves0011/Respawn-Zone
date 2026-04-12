@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Novo Jogo</title>
+</head>
+<body>
+
+    <h1>Cadastrar Novo Jogo</h1>
+
+    <form action="/salvar-jogo" method="POST">
+
+        <div>
+            <label for="nome">Nome do Jogo:</label><br>
+            <input type="text" id="nome" name="nome" maxlength="60" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="desc">Descrição:</label><br>
+            <textarea id="desc" name="desc" rows="4" cols="50" maxlength="500" required></textarea>
+        </div>
+        <br>
+
+        <div>
+            <label for="img">Caminho da Imagem (URL ou Arquivo):</label><br>
+            <input type="text" id="img" name="img" maxlength="100" required>
+        </div>
+        <br>
+
+        <div>
+            <label><strong>Categorias (Selecione uma ou mais):</strong></label><br>
+            <input type="checkbox" id="cat_acao" name="categoria" value="Acao">
+            <label for="cat_acao">Ação</label><br>
+
+            <input type="checkbox" id="cat_aventura" name="categoria" value="Aventura">
+            <label for="cat_aventura">Aventura</label><br>
+
+            <input type="checkbox" id="cat_rpg" name="categoria" value="RPG">
+            <label for="cat_rpg">RPG</label><br>
+
+            <input type="checkbox" id="cat_estrategia" name="categoria" value="Estrategia">
+            <label for="cat_estrategia">Estratégia</label><br>
+        </div>
+        <br>
+
+        <div>
+            <label><strong>Plataformas (Selecione uma ou mais):</strong></label><br>
+            <input type="checkbox" id="plat_pc" name="plataforma" value="PC">
+            <label for="plat_pc">PC</label><br>
+
+            <input type="checkbox" id="plat_play" name="plataforma" value="Playstation">
+            <label for="plat_play">Playstation</label><br>
+
+            <input type="checkbox" id="plat_xbox" name="plataforma" value="XBOX">
+            <label for="plat_xbox">XBOX</label><br>
+        </div>
+        <br>
+
+        <div>
+            <label for="preco">Preço Original (R$):</label><br>
+            <input type="number" id="preco" name="preco" step="0.01" required>
+        </div>
+        <br>
+        
+        <div>
+            <label for="desconto">Desconto Aplicado (Ex: 20.00):</label><br>
+            <input type="number" id="desconto" name="desconto" step="0.01" required>
+        </div>
+        <br>
+
+        <button type="submit">Cadastrar Jogo</button>
+
+    </form>
+
+</body>
+</html>

@@ -18,3 +18,7 @@ function openView(box) {
     card.classList.add("ativo");
     box.textContent = "Ver menos";
 }
+
+function comprarJogo(id) {
+    console.log(id);
+}
