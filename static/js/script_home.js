@@ -54,3 +54,7 @@ function openView(box) {
 function comprarJogo(id) {
     console.log(id);
 }
+
+function chamaLogin() {
+    window.location.replace("/login");
+}

@@ -11,6 +11,42 @@
 
 <body>
     <header class="topbar">
+        <div class="nav-bt" id="openSidebar" title="Abrir Menu">
+            ☰
+        </div>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="/static/img/logo.png" alt="Respawn-Zone" class="sidebar-logo">
+                <button class="close-btn" id="closeSidebar">&times;</button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="destaque">OFERTAS</a>
+                <a href="#">PC</a>
+                <a href="#">PLAYSTATION</a>
+                <a href="#">XBOX</a>
+                <a href="#">CATÁLOGO</a>
+
+                <div class="sidebar-dropdown">
+                    <span class="dropdown-btn" id="toggleDropdown">CATEGORIAS ▾</span>
+                    <div class="sidebar-dropdown-content" id="sidebarCatContent">
+                        <a href="#">AÇÃO</a>
+                        <a href="#">AVENTURA</a>
+                        <a href="#">RPG</a>
+                        <a href="#">ESTRATÉGIA</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="bt-side">
+                <button class="bt-side-primary" onclick="chamaLogin()">
+                    Login
+                </button>
+            </div>
+        </aside>
+
         <div class="logo">
             <img id="logo" src="../static/img/logo.png">
         </div>
@@ -19,7 +55,9 @@
             <button>🔍</button>
         </div>
         <div class="nav-right">
-            <a id="caixalogin" href="#"><b>Login</b></a>
+            <a id="caixalogin" href="/login">
+                <b>Login</b>
+            </a>
         </div>
         </div>
     </header>

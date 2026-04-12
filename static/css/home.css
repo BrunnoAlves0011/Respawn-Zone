@@ -477,7 +477,7 @@ body {
     left: -300px; /* Escondido fora da tela */
     width: 260px;
     height: 100vh;
-    background-color: #121214;
+    background-color: #000;
     border-right: 1px solid #232328;
     z-index: 1000;
     transition: left 0.3s ease;
@@ -524,6 +524,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 10px 0;
+    flex-grow: 1;
 }
 
 .sidebar-nav a, .dropdown-btn {
@@ -564,4 +565,30 @@ body {
     font-size: 13px;
     font-weight: 500;
     border-bottom: none;
+}
+
+.sidebar .bt-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.sidebar .bt-side-primary {
+    background: linear-gradient(135deg, #1a044d, #062159);
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    /* box-shadow: 0 0 10px rgba(6, 191, 255, 0.4); */
+}
+
+.sidebar .bt-side-primary:hover {
+    background: linear-gradient(135deg, #2d73ff, #06bfff);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(6, 191, 255, 0.8);
 }
