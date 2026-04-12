@@ -159,3 +159,27 @@ input[type="submit"]:active {
     opacity: 1;
     transform: translateY(0);
 }
+
+#bt-voltar {
+    position: fixed;
+    top: 20px;     /* Distância do topo */
+    left: 20px;    /* Distância da esquerda */
+    z-index: 1000; /* Garante que ele fique por cima de outros elementos */
+    width: 70px;
+    padding: 14px;
+    background: linear-gradient(135deg, #1a044d, #062159);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(6, 191, 255, 0.4);
+}
+
+#bt-voltar:hover {
+    background: linear-gradient(135deg, #2d73ff, #06bfff);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(6, 191, 255, 0.8);
+}

@@ -50,12 +50,12 @@ def get_db():
 # Tela Principal (HomePage)
 @app.get("/home", response_class=HTMLResponse)
 def homePage(request: Request, db: Session = Depends(get_db)):
-    if request.session.get("logged_in"):
-        jogos = db.query(Jogos).all()
+    # if request.session.get("logged_in"):
+    jogos = db.query(Jogos).all()
 
-        return templates.TemplateResponse("home.html", {"request": request, "jogos": jogos})
-    else:
-        return templates.TemplateResponse("signin.html", {"request": request})
+    return templates.TemplateResponse("home.html", {"request": request, "jogos": jogos})
+    # else:
+    #     return templates.TemplateResponse("signin.html", {"request": request})
 
 
 
@@ -99,33 +99,33 @@ def addJogo(request: Request,
 
 
 # Tela Login
-# @app.get("/login", response_class=HTMLResponse)
-# def login(request: Request, error: str = None, success: str = None):
-#     error_msg = None
-#     success_msg = None
+@app.get("/login", response_class=HTMLResponse)
+def login(request: Request, error: str = None, success: str = None):
+    error_msg = None
+    success_msg = None
     
-#     if error == "error_login":
-#         error_msg = "Erro ao entrar na conta!"
+    if error == "error_login":
+        error_msg = "Erro ao entrar na conta!"
 
-#     return templates.TemplateResponse("signin.html", {
-#         "request": request,
-#         "error": error_msg,
-#         "success": success_msg
-#         })
+    return templates.TemplateResponse("signin.html", {
+        "request": request,
+        "error": error_msg,
+        "success": success_msg
+        })
 
-# @app.post("/login", response_class=HTMLResponse)
-# def validar(request: Request, usuario: str = Form(...), senha: str = Form(...), db: Session = Depends(get_db)):
-#     user = db.query(Users).filter_by(username=usuario, senha=senha).first()
-#     if user:
-#         print('Logado com sucesso')
-#         perfil = db.query(Perfil).filter_by(username = user.username).first()
-#         request.session["logged_in"] = True
-#         request.session["username"] = user.username
-#         request.session["user"] = perfil.nome
-#         return RedirectResponse(url='/home', status_code=303)
-#     else:
-#         print('Erro ao entrar')
-#         return RedirectResponse(url="/login?error=error_login", status_code=303)
+@app.post("/login", response_class=HTMLResponse)
+def validar(request: Request, usuario: str = Form(...), senha: str = Form(...), db: Session = Depends(get_db)):
+    user = db.query(Users).filter_by(username=usuario, senha=senha).first()
+    if user:
+        print('Logado com sucesso')
+        perfil = db.query(Perfil).filter_by(username = user.username).first()
+        request.session["logged_in"] = True
+        request.session["username"] = user.username
+        request.session["user"] = perfil.nome
+        return RedirectResponse(url='/home', status_code=303)
+    else:
+        print('Erro ao entrar')
+        return RedirectResponse(url="/login?error=error_login", status_code=303)
 
 
 
