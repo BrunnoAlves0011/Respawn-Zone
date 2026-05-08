@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/home/style.css">
+    <script src="../static/home/script.js"></script>
+    <title>Respawn-Zone</title>
+</head>
+
+<body>
+    <div id="container-topo"></div>
+
+<script>
+    fetch("topo.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("container-topo").innerHTML = data;
+    });
+</script>
+
+<h1 id="nome"></h1>
+<p id="preco"></p>
+<p id="desc"></p>
+<img id="img">
+
+              <div id="container-footer"></div>
+
+<script>
+    fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("container-footer").innerHTML = data;
+    });
+</script>
+</body>
+
+</html>

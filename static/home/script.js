@@ -18,3 +18,23 @@ function openView(box) {
     card.classList.add("ativo");
     box.textContent = "Ver menos";
 }
+function comprarJogo(botao) {
+    const card = botao.closest(".card-jogo");
+
+    const nome = card.querySelector("h2").textContent;
+    const preco = card.querySelector(".preco").textContent;
+    const descricao = card.querySelector(".sinopse").textContent;
+    const imagem = card.querySelector("img").src;
+
+    console.log(nome);
+    console.log(preco);
+    console.log(descricao);
+    console.log(imagem);
+
+    localStorage.setItem("nomeJogo", nome);
+    localStorage.setItem("precoJogo", preco);
+    localStorage.setItem("descricaoJogo", descricao);
+    localStorage.setItem("imagemJogo", imagem);
+
+    window.location.href = "jogos.html";
+}

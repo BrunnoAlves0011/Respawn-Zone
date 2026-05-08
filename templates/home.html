@@ -10,41 +10,16 @@
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="logo">
-            <img id="logo" src="../static/img/logo.png">
-        </div>
-        <div class="search-box">
-            <input id="placeholder" type="text" placeholder="Pesquisar...">
-            <button>🔍</button>
-        </div>
-        <div class="nav-right">
-            <a id="caixalogin" href="#"><b>Login</b></a>
-        </div>
-        </div>
-    </header>
-    <header>
-        <nav class="categories-bar">
-            <div class="cat-container">
+    <div id="container-topo"></div>
 
-                <a href="#" class="cat-link destaque">OFERTAS</a>
-                <a href="#" class="cat-link">PC</a>
-                <a href="#" class="cat-link">PLAYSTATION</a>
-                <a href="#" class="cat-link">XBOX</a>
-                <a href="#" class="cat-link">CATÁLOGO</a>
+<script>
+    fetch("topo.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("container-topo").innerHTML = data;
+    });
+</script>
 
-                <div class="dropdown">
-                    <a href="#" class="cat-link">CATEGORIAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#">AÇÃO</a>
-                        <a href="#">AVENTURA</a>
-                        <a href="#">RPG</a>
-                        <a href="#">ESTRATÉGIA</a>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
         <section class="main-banner">
             <div class="banner-content">
                 <div class="banner-item">
@@ -89,7 +64,7 @@
                     </p>
                 </div>
                 <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button>Comprar</button>
+                <button onclick="comprarJogo(this)">Comprar</button>
             </div>
             <div class="card-jogo">
                 <img src="../static/img/MWIII_Capa.png" alt="Call of Duty MW3">
@@ -109,7 +84,7 @@
                     </p>
                 </div>
                 <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button class="bt">Comprar</button>
+                <button onclick="comprarJogo(this)">Comprar</button>
             </div>
             <div class="card-jogo">
                 <img src="../static/img/minecrafcapa.jpg" alt="Minecraf">
@@ -197,45 +172,15 @@
                 <button>Comprar</button>
             </div>
         </section>
-        <footer class="footer-keys">
-            <div class="footer-top">
-                <div class="footer-box">
-                    <h4>INSTITUCIONAL</h4>
-                    <a href="#">Quem Somos</a>
-                    <a href="#">Termos de Uso</a>
-                    <a href="#">Privacidade</a>
-                </div>
-                <div class="footer-box">
-                    <h4>AJUDA</h4>
-                    <a href="#">Suporte</a>
-                    <a href="#">Como Ativar</a>
-                </div>
-                <div class="footer-box">
-                    <h4>SIGA-NOS</h4>
-                    <div class="social-row">
-                        <a href="#" class="social-icon">Instagram</a>
-                        <a href="#" class="social-icon">Discord</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-badges">
-                <div class="badge-container">
-                    <div class="payment-icons">
-                        <p>PAGUE COM:</p>
-                        <div class="mini-card">PIX</div>
-                        <div class="mini-card">CARTÃO DE CRÉDITO</div>
-                        <div class="mini-card">CARTÃO DE DÉBITO</div>
-                    </div>
-                    <div class="security-icons">
-                        <p>SEGURANÇA:</p>
-                        <div class="secure-badge">🔒 SSL SECURE</div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copy">
-                <p>© 2026 Respawn-Zone - Todos os direitos reservados.</p>
-            </div>
-        </footer>
+        <div id="container-footer"></div>
+
+<script>
+    fetch("footer.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("container-footer").innerHTML = data;
+    });
+</script>
 </body>
 
 </html>
