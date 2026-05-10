@@ -1,15 +1,10 @@
-console.log(localStorage.getItem("nomeJogo"));
-console.log(localStorage.getItem("precoJogo"));
-console.log(localStorage.getItem("descricaoJogo"));
-console.log(localStorage.getItem("imagemJogo"));
-
-document.getElementById("nome").textContent =
+document.getElementById("nome").innerText =
 localStorage.getItem("nomeJogo");
 
-document.getElementById("preco").textContent =
+document.getElementById("preco").innerHTML =
 localStorage.getItem("precoJogo");
 
-document.getElementById("desc").textContent =
+document.getElementById("desc").innerText =
 localStorage.getItem("descricaoJogo");
 
 document.getElementById("img").src =

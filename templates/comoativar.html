@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/home/style.css">
+    <title>Como Ativar</title>
+</head>
+
+<body>
+
+<div id="container-topo"></div>
+
+<main class="pagina-info">
+    <div class="info-box">
+        <h1>Como Ativar Seu Jogo</h1>
+
+        <p><strong>1.</strong> Realize a compra no site.</p>
+
+        <p><strong>2.</strong> Após o pagamento, sua chave será enviada automaticamente.</p>
+
+        <p><strong>3.</strong> Copie a chave recebida.</p>
+
+        <p><strong>4.</strong> Acesse a plataforma correspondente (Steam, Xbox ou PlayStation).</p>
+
+        <p><strong>5.</strong> Insira o código e aproveite seu jogo.</p>
+    </div>
+</main>
+
+<div id="container-footer"></div>
+
+<script>
+ fetch("topo.html")
+.then(response => response.text())
+.then(data => {
+    document.getElementById("container-topo").innerHTML = data;
+
+    ativarPesquisa(); // 🔥 ESSENCIAL
+});
+fetch("footer.html")
+.then(res => res.text())
+.then(data => document.getElementById("container-footer").innerHTML = data);
+</script>
+
+</body>
+</html>

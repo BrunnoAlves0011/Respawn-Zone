@@ -5,34 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/home/style.css">
-    <script src="../static/home/script.js"></script>
+   <script src="../static/home/jogos.js" defer></script>
     <title>Respawn-Zone</title>
 </head>
 
-<body>
+<h1>
     <div id="container-topo"></div>
 
 <script>
-    fetch("topo.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("container-topo").innerHTML = data;
-    });
+     fetch("topo.html")
+.then(response => response.text())
+.then(data => {
+    document.getElementById("container-topo").innerHTML = data;
+
+    ativarPesquisa(); // 🔥 ESSENCIAL
+});
 </script>
 
-<h1 id="nome"></h1>
-<p id="preco"></p>
-<p id="desc"></p>
-<img id="img">
+<main class="produto-container">
+    
+    <div class="produto-box">
 
+        <div class="produto-imagem">
+            <img id="img">
+        </div>
+
+        <div class="produto-info">
+            <h1 id="nome"></h1>
+          <p id="preco" class="preco"></p>
+          <p id="desc" class="descricao-produto"></p>
+            <button class="btn-finalizar">
+                Finalizar Compra
+            </button>
+        </div>
+
+    </div>
+
+</main>
               <div id="container-footer"></div>
 
 <script>
+    fetch("cards.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("container-cards").innerHTML = data;
+
+         ativarPesquisa();
+    });
+
     fetch("footer.html")
     .then(response => response.text())
     .then(data => {
         document.getElementById("container-footer").innerHTML = data;
     });
+
 </script>
 </body>
 

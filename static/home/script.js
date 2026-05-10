@@ -21,15 +21,15 @@ function openView(box) {
 function comprarJogo(botao) {
     const card = botao.closest(".card-jogo");
 
-    const nome = card.querySelector("h2").textContent;
-    const preco = card.querySelector(".preco").textContent;
-    const descricao = card.querySelector(".sinopse").textContent;
-    const imagem = card.querySelector("img").src;
+    const nome = card.querySelector("h2").innerText;
 
-    console.log(nome);
-    console.log(preco);
-    console.log(descricao);
-    console.log(imagem);
+    // mantém o HTML do preço promocional
+    const preco = card.querySelector(".preco").innerHTML;
+
+    const descricao = card.querySelector(".sinopse").innerText;
+
+    // pega exatamente o src original da imagem
+    const imagem = card.querySelector("img").getAttribute("src");
 
     localStorage.setItem("nomeJogo", nome);
     localStorage.setItem("precoJogo", preco);
@@ -37,4 +37,52 @@ function comprarJogo(botao) {
     localStorage.setItem("imagemJogo", imagem);
 
     window.location.href = "jogos.html";
+}
+function ativarPesquisa() {
+    const campoPesquisa = document.getElementById("placeholder");
+
+    if (!campoPesquisa) return;
+
+    const jogos = document.querySelectorAll(".card-jogo");
+
+    campoPesquisa.addEventListener("input", function () {
+        const texto = campoPesquisa.value.toLowerCase();
+
+        jogos.forEach(function (jogo) {
+            const nome = jogo.querySelector("h2").textContent.toLowerCase();
+
+            if (nome.includes(texto)) {
+                jogo.style.display = "flex";
+            } else {
+                jogo.style.display = "none";
+            }
+        });
+    });
+}
+
+function irHome() {
+    window.location.href = "home.html";
+}
+function redirecionarPesquisa() {
+    if (!document.querySelector(".card-jogo")) {
+        window.location.href = "home.html";
+    }
+}
+function ativarRedirecionamentoPesquisa() {
+    const input = document.getElementById("placeholder");
+    const botao = document.querySelector(".search-box button");
+
+    if (!input || !botao) return;
+
+    // Se não estiver na home
+    if (!document.querySelector(".card-jogo")) {
+
+        input.addEventListener("click", function () {
+            window.location.href = "home.html";
+        });
+
+        botao.addEventListener("click", function () {
+            window.location.href = "home.html";
+        });
+    }
 }
