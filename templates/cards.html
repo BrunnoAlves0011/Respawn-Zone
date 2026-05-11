@@ -1,129 +1,456 @@
 <!-- CONTEÚDO PRINCIPAL (JOGOS) -->
-    <main>
-        <section class="jogos">
-            <div class="card-jogo">
-                <img src="../static/img/gtav.png" alt="Gta V">
-                <h2>GTA V</h2>
-                <P class="preco">R$ 79,90</P>
-                <div class="sinopse-container">
-                    <p class="sinopse">
-                        Grand Theft Auto V acompanha a história de três criminosos com vidas bem diferentes
-                        em Los Santos.
-                        Michael (um ex-assaltante rico), Franklin (um jovem em busca de grana) e Trevor (um psicopata
-                        imprevisível) se unem.
-                        Juntos, eles planejam e executam uma série de grandes e perigosos assaltos para garantir a
-                        própria
-                        sobrevivência.
-                        O jogo mistura ação intensa, um vasto mundo aberto para explorar e uma forte crítica à sociedade
-                        moderna.
-                    </p>
-                </div>
-                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button onclick="comprarJogo(this)">Comprar</button>
+<main>
+    <section class="jogos">
+
+        <!-- GTA V -->
+        <div class="card-jogo"
+        data-categoria="acao"
+        data-plataforma="pc">
+
+            <span class="desconto">-35%</span>
+
+            <img src="../static/img/gtav.png" alt="GTA V">
+
+            <h2>GTA V</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 119,90
+                </span>
+                R$ 79,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Grand Theft Auto V acompanha a história de três criminosos em Los Santos.
+                    Michael, Franklin e Trevor se unem em grandes assaltos enquanto enfrentam
+                    o caos do submundo do crime em um enorme mundo aberto.
+                </p>
             </div>
-            <div class="card-jogo">
-                <img src="../static/img/MWIII_Capa.png" alt="Call of Duty MW3">
-                <h2>Call of Duty</h2>
-                <p class="preco">R$ 199,90</p>
-                <div class="sinopse-container">
-                    <p class="sinopse">
-                        Modern Warfare 3 acompanha a Força-Tarefa 141 na caçada implacável contra o terrorista Vladimir
-                        Makarov.
-                        O capitão Price e sua equipe lutam para impedir uma Terceira Guerra Mundial que ameaça consumir
-                        o
-                        planeta.
-                        O jogo entrega uma campanha intensa com batalhas urbanas e missões de combate aberto muito mais
-                        dinâmicas.
-                        É o desfecho explosivo de uma das sagas mais icônicas e cheias de ação do mundo dos jogos de
-                        tiro.
-                    </p>
-                </div>
-                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button onclick="comprarJogo(this)">Comprar</button>
-            </div>
-            <div class="card-jogo">
-                <img src="../static/img/minecrafcapa.jpg" alt="Minecraf">
-                <h2>Minecraft</h2>
-                <p class="preco"> R$ 74,99 </p>
-                <div class="sinopse-container">
-                    <p class="sinopse">
-                        Minecraft é um jogo de mundo aberto onde tudo é feito de blocos que podem ser
-                        quebrados e reconstruídos.
-                        Sem regras fixas, você pode explorar cenários infinitos, coletar recursos e criar ferramentas
-                        para
-                        sobreviver.
-                        O foco do jogo varia entre erguer construções grandiosas e enfrentar criaturas perigosas que
-                        surgem
-                        à noite.
-                        No fim das contas, o verdadeiro objetivo é usar a criatividade para moldar o próprio universo.
-                    </p>
-                </div>
-                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-               <button onclick="comprarJogo(this)">Comprar</button>
-            </div>
-            <div class="card-jogo">
-                <span class="desconto">-17%</span>
-                <img src="../static/img/Crimson Desert.jpg" alt="Crimson Desert">
-                <h2>Crimson Desert</h2>
-                <p class="preco">
-                    <span style="text-decoration: line-through; color: gray;">R$ 299,90</span>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- COD -->
+        <div class="card-jogo"
+        data-categoria="acao"
+        data-plataforma="playstation">
+
+            <span class="desconto">-20%</span>
+
+            <img src="../static/img/MWIII_Capa.png" alt="Call of Duty MW3">
+
+            <h2>Call of Duty MWIII</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
                     R$ 249,90
+                </span>
+                R$ 199,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Modern Warfare III acompanha a Força-Tarefa 141 contra Vladimir Makarov.
+                    O jogo entrega campanhas intensas, combate frenético e modos multiplayer explosivos.
                 </p>
-                <div class="sinopse-container">
-                    <p class="sinopse">
-                        Durante um ataque brutal dos Ursos Negros, Kliff perde seus camaradas Grisalhos, sua família em
-                        tudo, exceto no nome.
-                        Em meio à turbulência que domina o continente de Pywel, ele parte em busca dos sobreviventes
-                        dispersos, para
-                        reconstruir os caídos Grisalhos e reconquistar a terra natal que um dia chamaram de sua.
-                    </p>
-                </div>
-                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button onclick="comprarJogo(this)">Comprar</button>
             </div>
-            <div class="card-jogo">
-                <span class="desconto">-20%</span>
-                <img src="../static/img/Resident Evil Requiem.jpg" alt="Resident Evil Requiem">
-                <h2>Resident Evil Requiem</h2>
-                <p class="preco">
-                    <span style="text-decoration: line-through; color: gray;">R$ 249,90</span>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- Minecraft -->
+        <div class="card-jogo"
+        data-categoria="aventura"
+        data-plataforma="xbox">
+
+            <span class="desconto">-10%</span>
+
+            <img src="../static/img/minecrafcapa.jpg" alt="Minecraft">
+
+            <h2>Minecraft</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 84,99
+                </span>
+                R$ 74,99
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Minecraft é um jogo de sobrevivência e criatividade onde você explora
+                    mundos infinitos, constrói estruturas gigantescas e enfrenta criaturas perigosas.
+                </p>
+            </div>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- Crimson Desert -->
+        <div class="card-jogo"
+        data-categoria="rpg"
+        data-plataforma="pc">
+
+            <span class="desconto">-17%</span>
+
+            <img src="../static/img/Crimson Desert.jpg" alt="Crimson Desert">
+
+            <h2>Crimson Desert</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 299,90
+                </span>
+                R$ 249,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Em meio ao continente devastado de Pywel, Kliff luta para reencontrar
+                    seus companheiros e restaurar os lendários Grisalhos.
+                </p>
+            </div>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- Resident Evil -->
+        <div class="card-jogo"
+        data-categoria="acao"
+        data-plataforma="playstation">
+
+            <span class="desconto">-20%</span>
+
+            <img src="../static/img/Resident Evil Requiem.jpg" alt="Resident Evil Requiem">
+
+            <h2>Resident Evil Requiem</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 249,90
+                </span>
+                R$ 199,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    O novo capítulo da franquia Resident Evil traz terror intenso,
+                    sobrevivência e uma experiência cinematográfica extremamente imersiva.
+                </p>
+            </div>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- Death Stranding -->
+        <div class="card-jogo"
+        data-categoria="aventura"
+        data-plataforma="playstation">
+
+            <span class="desconto">-15%</span>
+
+            <img src="../static/img/Death Stranding.jpg" alt="Death Stranding 2">
+
+            <h2>Death Stranding 2</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 299,90
+                </span>
+                R$ 254,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Hideo Kojima retorna com uma nova aventura emocional e cinematográfica,
+                    expandindo o universo misterioso de Death Stranding.
+                </p>
+            </div>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- Cyberpunk -->
+        <div class="card-jogo"
+        data-categoria="rpg"
+        data-plataforma="pc">
+
+            <span class="desconto">-40%</span>
+
+            <img src="../static/img/cyberpunk.jpg.webp" alt="Cyberpunk 2077">
+
+            <h2>Cyberpunk 2077</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 249,90
+                </span>
+                R$ 149,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Explore Night City em um RPG futurista repleto de ação,
+                    implantes cibernéticos e escolhas que alteram o destino da cidade.
+                </p>
+            </div>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+
+        <!-- Spider-Man -->
+        <div class="card-jogo"
+        data-categoria="aventura"
+        data-plataforma="playstation">
+
+            <span class="desconto">-18%</span>
+
+            <img src="../static/img/spiderman2.jpg.jpg" alt="Spider Man 2">
+
+            <h2>Spider-Man 2</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
+                    R$ 349,90
+                </span>
+                R$ 289,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Peter Parker e Miles Morales enfrentam novas ameaças em uma aventura
+                    cinematográfica cheia de ação pela cidade de Nova York.
+                </p>
+            </div>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+
+        <!-- Civilization -->
+        <div class="card-jogo"
+        data-categoria="estrategia"
+        data-plataforma="pc">
+
+            <span class="desconto">-30%</span>
+
+            <img src="../static/img/civilization.jpg" alt="Civilization VI">
+
+            <h2>Civilization VI</h2>
+
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">
                     R$ 199,90
+                </span>
+                R$ 139,90
+            </p>
+
+            <div class="sinopse-container">
+                <p class="sinopse">
+                    Construa um império do zero, desenvolva tecnologias e domine o mundo
+                    em um dos maiores jogos de estratégia da atualidade.
                 </p>
-                <div class="sinopse-container">
-                    <p class="sinopse">
-                        Resident Evil Réquiem é o nono título da série principal de Resident Evil.
-                        Prepare-se para escapar da morte em uma experiência de tirar o fôlego que irá arrepiar você até
-                        o
-                        âmago.
-                        Avanços tecnológicos combinados com a vasta experiência da equipe de desenvolvimento se unem em
-                        uma
-                        história
-                        com personagens ricos e uma jogabilidade mais imersiva do que nunca.
-                    </p>
-                </div>
-                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button onclick="comprarJogo(this)">Comprar</button>
             </div>
-            <div class="card-jogo">
-                <span class="desconto">-15%</span>
-                <img src="../static/img/Death Stranding.jpg" alt="Death Stranding 2">
-                <h2>Death Stranding 2</h2>
-                <p class="preco">
-                    <span style="text-decoration: line-through; color: gray;">R$ 299,90</span>
-                    R$ 254,90
-                </p>
-                <div class="sinopse-container">
-                    <p class="sinopse">
-                        Do lendário criador de jogos Hideo Kojima vem uma evolução carregada de emoção desta experiência
-                        que
-                        desafia
-                        gêneros. Ao trazer este título para o PC, a KOJIMA PRODUCTIONS trabalhou com a Nixxes Software
-                        para
-                        entregar a
-                        versão definitiva do lançamento aclamado pela crítica nos consoles.
-                    </p>
-                </div>
-                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
-                <button onclick="comprarJogo(this)">Comprar</button>
-            </div>
-        </section>
+
+            <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+            <button onclick="comprarJogo(this)">Comprar</button>
+        </div>
+<!-- Hogwarts Legacy -->
+<div class="card-jogo"
+data-categoria="rpg"
+data-plataforma="playstation">
+
+    <span class="desconto">-22%</span>
+
+    <img src="../static/img/hogwarts.jpg" alt="Hogwarts Legacy">
+
+    <h2>Hogwarts Legacy</h2>
+
+    <p class="preco">
+        <span style="text-decoration: line-through; color: gray;">
+            R$ 279,90
+        </span>
+        R$ 219,90
+    </p>
+
+    <div class="sinopse-container">
+        <p class="sinopse">
+            Viva a experiência definitiva de Hogwarts em um RPG de mundo aberto
+            repleto de magia, criaturas fantásticas e segredos antigos.
+        </p>
+    </div>
+
+    <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+    <button onclick="comprarJogo(this)">Comprar</button>
+</div>
+
+<!-- Red Dead Redemption 2 -->
+<div class="card-jogo"
+data-categoria="aventura"
+data-plataforma="xbox">
+
+    <span class="desconto">-30%</span>
+
+    <img src="../static/img/reddead.jpg" alt="Red Dead Redemption 2">
+
+    <h2>Red Dead Redemption 2</h2>
+
+    <p class="preco">
+        <span style="text-decoration: line-through; color: gray;">
+            R$ 249,90
+        </span>
+        R$ 174,90
+    </p>
+
+    <div class="sinopse-container">
+        <p class="sinopse">
+            Explore o Velho Oeste em uma jornada cinematográfica intensa
+            acompanhando Arthur Morgan e a gangue Van der Linde.
+        </p>
+    </div>
+
+    <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+    <button onclick="comprarJogo(this)">Comprar</button>
+</div>
+
+<!-- Black Myth -->
+<div class="card-jogo"
+data-categoria="acao"
+data-plataforma="pc">
+
+    <span class="desconto">-15%</span>
+
+    <img src="../static/img/blackmith.webp" alt="Black Myth Wukong">
+
+    <h2>Black Myth: Wukong</h2>
+
+    <p class="preco">
+        <span style="text-decoration: line-through; color: gray;">
+            R$ 299,90
+        </span>
+        R$ 254,90
+    </p>
+
+    <div class="sinopse-container">
+        <p class="sinopse">
+            Inspirado na mitologia chinesa, enfrente criaturas lendárias
+            em um RPG de ação visualmente impressionante.
+        </p>
+    </div>
+
+    <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+    <button onclick="comprarJogo(this)">Comprar</button>
+</div>
+
+<!-- EA FC 26 -->
+<div class="card-jogo"
+data-categoria="estrategia"
+data-plataforma="playstation">
+
+    <span class="desconto">-10%</span>
+
+    <img src="../static/img/fc26.webp" alt="EA FC 26">
+
+    <h2>EA SPORTS FC 26</h2>
+
+    <p class="preco">
+        <span style="text-decoration: line-through; color: gray;">
+            R$ 349,90
+        </span>
+        R$ 314,90
+    </p>
+
+    <div class="sinopse-container">
+        <p class="sinopse">
+            Monte seu elenco dos sonhos e dispute partidas intensas
+            com gráficos realistas e jogabilidade refinada.
+        </p>
+    </div>
+
+    <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+    <button onclick="comprarJogo(this)">Comprar</button>
+</div>
+
+<!-- Alan Wake 2 -->
+<div class="card-jogo"
+data-categoria="acao"
+data-plataforma="xbox">
+
+    <span class="desconto">-18%</span>
+
+    <img src="../static/img/alanwake.webp" alt="Alan Wake 2">
+
+    <h2>Alan Wake 2</h2>
+
+    <p class="preco">
+        <span style="text-decoration: line-through; color: gray;">
+            R$ 249,90
+        </span>
+        R$ 204,90
+    </p>
+
+    <div class="sinopse-container">
+        <p class="sinopse">
+            Um thriller psicológico sombrio que mistura investigação,
+            terror e narrativa cinematográfica em uma atmosfera intensa.
+        </p>
+    </div>
+
+    <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+    <button onclick="comprarJogo(this)">Comprar</button>
+</div>
+
+<!-- Assassin's Creed -->
+<div class="card-jogo"
+data-categoria="aventura"
+data-plataforma="pc">
+
+    <span class="desconto">-25%</span>
+
+    <img src="../static/img/assasins.webp" alt="Assassins Creed Shadows">
+
+    <h2>Assassin's Creed Shadows</h2>
+
+    <p class="preco">
+        <span style="text-decoration: line-through; color: gray;">
+            R$ 299,90
+        </span>
+        R$ 224,90
+    </p>
+
+    <div class="sinopse-container">
+        <p class="sinopse">
+            Explore o Japão feudal em uma aventura épica de furtividade,
+            combate e exploração no universo Assassin's Creed.
+        </p>
+    </div>
+
+    <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+
+    <button onclick="comprarJogo(this)">Comprar</button>
+</div>
+    </section>
+</main>

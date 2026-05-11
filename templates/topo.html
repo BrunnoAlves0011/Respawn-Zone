@@ -29,19 +29,46 @@
 <nav class="categories-bar">
     <div class="cat-container">
 
-        <a href="#" class="cat-link destaque">OFERTAS</a>
-        <a href="#" class="cat-link">PC</a>
-        <a href="#" class="cat-link">PLAYSTATION</a>
-        <a href="#" class="cat-link">XBOX</a>
-        <a href="#" class="cat-link">CATÁLOGO</a>
-
+        <a href="#" class="cat-link destaque"
+onclick="filtrarOfertas()">
+OFERTAS
+</a>
+       <a href="#" class="cat-link"
+onclick="filtrarPlataforma('pc')">
+PC
+</a>
+       <a href="#" class="cat-link"
+onclick="filtrarPlataforma('playstation')">
+PLAYSTATION
+</a>
+        <a href="#" class="cat-link"
+onclick="filtrarPlataforma('xbox')">
+XBOX
+</a>
+<a href="#" class="cat-link"
+onclick="mostrarTodos()">
+CATÁLOGO
+</a>
         <div class="dropdown">
             <a href="#" class="cat-link">CATEGORIAS ▾</a>
             <div class="dropdown-content">
-                <a href="#">AÇÃO</a>
-                <a href="#">AVENTURA</a>
-                <a href="#">RPG</a>
-                <a href="#">ESTRATÉGIA</a>
+               <a href="#"
+onclick="filtrarCategoria('acao')">
+AÇÃO
+</a>
+              <a href="#"
+onclick="filtrarCategoria('aventura')">
+AVENTURA
+</a>
+               <a href="#"
+onclick="filtrarCategoria('rpg')">
+RPG
+</a>
+                <a href="#"
+onclick="filtrarCategoria('estrategia')">
+ESTRATÉGIA
+</a>
+
             </div>
         </div>
 

@@ -85,4 +85,77 @@ function ativarRedirecionamentoPesquisa() {
             window.location.href = "home.html";
         });
     }
+}function comprarBanner(botao) {
+
+    const nome = botao.dataset.nome;
+    const preco = botao.dataset.preco;
+    const imagem = botao.dataset.img;
+    const descricao = botao.dataset.desc;
+
+    localStorage.setItem("nomeJogo", nome);
+    localStorage.setItem("precoJogo", preco);
+    localStorage.setItem("imagemJogo", imagem);
+    localStorage.setItem("descricaoJogo", descricao);
+
+    window.location.href = "jogos.html";
+}
+function mostrarTodos() {
+esconderBanner();
+    const jogos = document.querySelectorAll(".card-jogo");
+
+    jogos.forEach(jogo => {
+        jogo.style.display = "flex";
+    });
+}
+
+function filtrarCategoria(categoria) {
+esconderBanner();
+    const jogos = document.querySelectorAll(".card-jogo");
+
+    jogos.forEach(jogo => {
+
+        if (jogo.dataset.categoria === categoria) {
+            jogo.style.display = "flex";
+        } else {
+            jogo.style.display = "none";
+        }
+
+    });
+}
+
+function filtrarPlataforma(plataforma) {
+esconderBanner();
+    const jogos = document.querySelectorAll(".card-jogo");
+
+    jogos.forEach(jogo => {
+
+        if (jogo.dataset.plataforma === plataforma) {
+            jogo.style.display = "flex";
+        } else {
+            jogo.style.display = "none";
+        }
+
+    });
+}
+
+function filtrarOfertas() {
+esconderBanner();
+    const jogos = document.querySelectorAll(".card-jogo");
+
+    jogos.forEach(jogo => {
+
+        const desconto = jogo.querySelector(".desconto");
+
+        if (desconto) {
+            jogo.style.display = "flex";
+        } else {
+            jogo.style.display = "none";
+        }
+
+    });
+}
+function esconderBanner() {
+
+    document.getElementById("main-banner").style.display = "none";
+
 }

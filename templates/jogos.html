@@ -60,6 +60,21 @@
     });
 
 </script>
+<script>
+
+document.getElementById("nome").innerHTML =
+localStorage.getItem("nomeJogo");
+
+document.getElementById("preco").innerHTML =
+localStorage.getItem("precoJogo");
+
+document.getElementById("img").src =
+localStorage.getItem("imagemJogo");
+
+document.getElementById("desc").innerHTML =
+localStorage.getItem("descricaoJogo");
+
+</script>
 </body>
 
 </html>

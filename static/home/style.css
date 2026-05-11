@@ -643,3 +643,28 @@ body {
     line-height: 1;
     white-space: nowrap;
 }
+.card-jogo {
+    width: 230px;
+    padding: 10px;
+}
+
+.card-jogo img {
+    height: 230px;
+}
+
+.card-jogo h2 {
+    font-size: 18px;
+}
+
+.preco {
+    font-size: 16px;
+}
+
+.sinopse {
+    font-size: 13px;
+}
+
+.card-jogo button {
+    padding: 10px;
+    font-size: 15px;
+}
