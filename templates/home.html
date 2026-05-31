@@ -10,115 +10,45 @@
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="nav-bt" id="openSidebar" title="Abrir Menu">
-            ☰
-        </div>
-
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <img src="/static/img/logo.png" alt="Respawn-Zone" class="sidebar-logo">
-                <button class="close-btn" id="closeSidebar">&times;</button>
-            </div>
-
-            <nav class="sidebar-nav">
-                <a href="#" class="destaque">OFERTAS</a>
-                <a href="#">PC</a>
-                <a href="#">PLAYSTATION</a>
-                <a href="#">XBOX</a>
-                <a href="#">CATÁLOGO</a>
-
-                <div class="sidebar-dropdown">
-                    <span class="dropdown-btn" id="toggleDropdown">CATEGORIAS ▾</span>
-                    <div class="sidebar-dropdown-content" id="sidebarCatContent">
-                        <a href="#">AÇÃO</a>
-                        <a href="#">AVENTURA</a>
-                        <a href="#">RPG</a>
-                        <a href="#">ESTRATÉGIA</a>
-                    </div>
-                </div>
-            </nav>
-            <div class="bt-side">
-                <button class="bt-side-primary" onclick="chamaLogin()">
-                    Login
-                </button>
-            </div>
-        </aside>
-        <div class="logo">
-            <a href="/home">
-                <img id="logo" src="/static/img/logo.png">
-            </a>
-        </div>
-        <div class="search-box">
-            <input id="placeholder" type="text" placeholder="Pesquisar...">
-            <button>🔍</button>
-        </div>
-        <div class="nav-right">
-            <a id="caixalogin" href="/login">
-                <b>Login</b>
-            </a>
-        </div>
-    </header>
+    <div id="container-topo"></div>
     <header>
-        <nav class="categories-bar">
-            <div class="cat-container">
-
-                <a href="#" class="cat-link destaque">OFERTAS</a>
-                <a href="#" class="cat-link">PC</a>
-                <a href="#" class="cat-link">PLAYSTATION</a>
-                <a href="#" class="cat-link">XBOX</a>
-                <a href="#" class="cat-link">CATÁLOGO</a>
-
-                <div class="dropdown">
-                    <a href="#" class="cat-link">CATEGORIAS ▾</a>
-                    <div class="dropdown-content">
-                        <a href="#">AÇÃO</a>
-                        <a href="#">AVENTURA</a>
-                        <a href="#">RPG</a>
-                        <a href="#">ESTRATÉGIA</a>
-                    </div>
-                </div>
-
-            </div>
-        </nav>
-        <section class="main-banner">
+        <section class="main-banner" id="main-banner">
             <div class="banner-content">
                 <div class="banner-item">
                     <div class="container">
                         <div class="banner-text">
                             <span class="badge">DESTAQUE DA SEMANA</span>
-                            <h1>ELDEN RING: SHADOW OF THE ERDTREE</h1>
+                            <h1>{{ banner.nome }}</h1>
                             <p>Garanta sua expansão oficial com entrega imediata e o melhor preço do mercado.</p>
                             <div class="banner-actions">
-                                <a href="#" class="btn-primary">COMPRAR AGORA</a>
-                                <a href="#" class="btn-secondary">VER DETALHES</a>
+                                <a href="#" class="btn-primary" data-nome="{{ banner.nome }}"
+                                    data-preco="<span style='text-decoration: line-through; color: gray;'>R$ 249,90</span> R$ 199,90"
+                                    data-img="{{ banner.img }}"
+                                    data-desc="{{ banner.desc }}"
+                                    onclick="comprarBanner(this)">
+                                    COMPRAR AGORA
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="banner-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
         </section>
     </header>
-    <!-- CONTEÚDO PRINCIPAL (JOGOS) -->
     <main>
         <section class="jogos">
             <!-- CRIAR OS CARDS DE JOGOS A PARTIR DO RETORNO DE TABELA BACKEND-->
             {% for jogo in jogos %}
-            <div class="card-jogo">
+            {% if jogo.id != 1 %}
+            <div class="card-jogo" data-categoria="{{ jogo.categoria[0].lower() }}"
+                data-plataforma="{{ jogo.plataforma[0].lower() }}">
 
                 {% if jogo.desconto > 0 %}
                 <span class="desconto">-{{ "%g" | format(jogo.desconto | float) }}%</span>
                 {% endif %}
 
                 <img src="{{ jogo.img }}" alt="{{ jogo.name }}">
-                <h2>{{ jogo.name }}</h2>
+                <h2>{{ jogo.nome }}</h2>
 
                 {% if jogo.precod != jogo.preco %}
                 <p class="preco">
@@ -137,47 +67,32 @@
                 <span class="ver-mais" onclick="openView(this)">Ver mais</span>
                 <button onclick="comprarJogo('{{ jogo.id }}')">Comprar</button>
             </div>
+            {% endif %}
             {% endfor %}
         </section>
-        <footer class="footer-keys">
-            <div class="footer-top">
-                <div class="footer-box">
-                    <h4>INSTITUCIONAL</h4>
-                    <a href="#">Quem Somos</a>
-                    <a href="#">Termos de Uso</a>
-                    <a href="#">Privacidade</a>
-                </div>
-                <div class="footer-box">
-                    <h4>AJUDA</h4>
-                    <a href="#">Suporte</a>
-                    <a href="#">Como Ativar</a>
-                </div>
-                <div class="footer-box">
-                    <h4>SIGA-NOS</h4>
-                    <div class="social-row">
-                        <a href="#" class="social-icon">Instagram</a>
-                        <a href="#" class="social-icon">Discord</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-badges">
-                <div class="badge-container">
-                    <div class="payment-icons">
-                        <p>PAGUE COM:</p>
-                        <div class="mini-card">PIX</div>
-                        <div class="mini-card">CARTÃO DE CRÉDITO</div>
-                        <div class="mini-card">CARTÃO DE DÉBITO</div>
-                    </div>
-                    <div class="security-icons">
-                        <p>SEGURANÇA:</p>
-                        <div class="secure-badge">🔒 SSL SECURE</div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copy">
-                <p>© 2026 Respawn-Zone - Todos os direitos reservados.</p>
-            </div>
-        </footer>
+    </main>
+    <!-- <div id="container-cards"></div> -->
+    <div id="container-footer"></div>
+    <script>
+        fetch("/static/home/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-topo").innerHTML = data;
+                ativarPesquisa();
+                atualizarLogin();
+            });
+        fetch("/static/home/cards.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-cards").innerHTML = data;
+                ativarPesquisa();
+            });
+        fetch("/static/home/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-footer").innerHTML = data;
+            });
+    </script>
 </body>
 
 </html>

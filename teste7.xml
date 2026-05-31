@@ -1,0 +1,251 @@
+<cteProc xmlns="http://www.portalfiscal.inf.br/cte" versao="4.00">
+    <CTe xmlns="http://www.portalfiscal.inf.br/cte">
+        <infCte Id="CTe43260403146349000124570010000001161000000000" versao="4.00">
+            <ide>
+                <cUF>43</cUF>
+                <cCT>00000000</cCT>
+                <CFOP>5353</CFOP>
+                <natOp>PRESTACAO DE SERVICO DE TRANSPORTE A ESTABELECIMENTO COMERCI</natOp>
+                <mod>57</mod>
+                <serie>1</serie>
+                <nCT>116</nCT>
+                <dhEmi>2026-04-30T18:11:49-03:00</dhEmi>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>0</cDV>
+                <tpAmb>1</tpAmb>
+                <tpCTe>0</tpCTe>
+                <procEmi>0</procEmi>
+                <verProc>Hivelog CT-e 0.26.0</verProc>
+                <cMunEnv>4314902</cMunEnv>
+                <xMunEnv>PORTO ALEGRE</xMunEnv>
+                <UFEnv>RS</UFEnv>
+                <modal>05</modal>
+                <tpServ>0</tpServ>
+                <cMunIni>4304606</cMunIni>
+                <xMunIni>CANOAS</xMunIni>
+                <UFIni>RS</UFIni>
+                <cMunFim>4322004</cMunFim>
+                <xMunFim>TRIUNFO</xMunFim>
+                <UFFim>RS</UFFim>
+                <retira>1</retira>
+                <indIEToma>1</indIEToma>
+                <toma3>
+                    <toma>3</toma>
+                </toma3>
+            </ide>
+            <compl>
+                <Entrega>
+                    <semData>
+                        <tpPer>0</tpPer>
+                    </semData>
+                    <semHora>
+                        <tpHor>0</tpHor>
+                    </semHora>
+                </Entrega>
+                <xObs>Valor referente à prestação de serviço de transporte de gás, via gasoduto, no Trecho 3, no período de 01 a 30 de abril de 2026 , conforme Contratos de Prestação de Serviço de Transporte Firme de Entrada e de Saída de gás natural, assinados em 26/12/2025. ICMS ISENTO conforme Livro I, art. 10, IX, Nota 02 do RICMS/RS, c/c IN DRP nº 045/98, Título I, Capítulo I, item 24.1. Valor aproximado impostos R$ 23.537,95</xObs>
+                <ObsCont xCampo="Lei da Transparência">
+                    <xTexto>O valor aproximado de tributos incidentes sobre o preço deste serviço é de R$ 0.0</xTexto>
+                </ObsCont>
+            </compl>
+            <emit>
+                <CNPJ>03146349000124</CNPJ>
+                <IE>0962760226</IE>
+                <xNome>TRANSPORTADORA SULBRASILEIRA DE GAS SA</xNome>
+                <xFant>TSB</xFant>
+                <enderEmit>
+                    <xLgr>RUA FURRIEL LUIZ ANTÔNIO DE VARGAS</xLgr>
+                    <nro>250</nro>
+                    <xCpl>CJ 1304</xCpl>
+                    <xBairro>BELA VISTA</xBairro>
+                    <cMun>4314902</cMun>
+                    <xMun>PORTO ALEGRE</xMun>
+                    <CEP>90470130</CEP>
+                    <UF>RS</UF>
+                    <fone>5130190185</fone>
+                </enderEmit>
+                <CRT>3</CRT>
+            </emit>
+            <rem>
+                <CNPJ>03146349000124</CNPJ>
+                <IE>0962760226</IE>
+                <xNome>TRANSPORTADORA SULBRASILEIRA DE GÁS S</xNome>
+                <xFant>TSB</xFant>
+                <fone>51999654103</fone>
+                <enderReme>
+                    <xLgr>RUA FURRIEL LUIZ ANTÔNIO DE VARGAS</xLgr>
+                    <nro>250</nro>
+                    <xCpl>conjunto 1304</xCpl>
+                    <xBairro>BELA VISTA</xBairro>
+                    <cMun>4314902</cMun>
+                    <xMun>PORTO ALEGRE</xMun>
+                    <CEP>90470130</CEP>
+                    <UF>RS</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderReme>
+                <email>mariajose@tsb.com.br</email>
+            </rem>
+            <exped>
+                <CNPJ>03146349000124</CNPJ>
+                <IE>0962760226</IE>
+                <xNome>TRANSPORTADORA SULBRASILEIRA DE GÁS S</xNome>
+                <fone>51999654103</fone>
+                <enderExped>
+                    <xLgr>RUA FURRIEL LUIZ ANTÔNIO DE VARGAS</xLgr>
+                    <nro>250</nro>
+                    <xCpl>conjunto 1304</xCpl>
+                    <xBairro>BELA VISTA</xBairro>
+                    <cMun>4314902</cMun>
+                    <xMun>PORTO ALEGRE</xMun>
+                    <CEP>90470130</CEP>
+                    <UF>RS</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderExped>
+                <email>mariajose@tsb.com.br</email>
+            </exped>
+            <dest>
+                <CNPJ>37543498000149</CNPJ>
+                <IE>129154372119</IE>
+                <xNome>VOQEN ENERGIA LTDA</xNome>
+                <fone>31994972798</fone>
+                <enderDest>
+                    <xLgr>RUA LEMOS MONTEIRO</xLgr>
+                    <nro>120</nro>
+                    <xCpl>21 AND SL 2108</xCpl>
+                    <xBairro>BUTANTÃ</xBairro>
+                    <cMun>3550308</cMun>
+                    <xMun>SÃO PAULO</xMun>
+                    <CEP>05501050</CEP>
+                    <UF>SP</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderDest>
+            </dest>
+            <vPrest>
+                <vTPrest>644875.45</vTPrest>
+                <vRec>644875.45</vRec>
+                <Comp>
+                    <xNome>Frete peso</xNome>
+                    <vComp>644875.45</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>Taxa de coleta</xNome>
+                    <vComp>0.00</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>Taxa de entrega</xNome>
+                    <vComp>0.00</vComp>
+                </Comp>
+            </vPrest>
+            <imp>
+                <ICMS>
+                    <ICMS45>
+                        <CST>40</CST>
+                    </ICMS45>
+                </ICMS>
+                <vTotTrib>0.00</vTotTrib>
+                <IBSCBS>
+                    <CST>000</CST>
+                    <cClassTrib>000001</cClassTrib>
+                    <gIBSCBS>
+                        <vBC>644875.45</vBC>
+                        <gIBSUF>
+                            <pIBSUF>0.10</pIBSUF>
+                            <vIBSUF>644.88</vIBSUF>
+                        </gIBSUF>
+                        <gIBSMun>
+                            <pIBSMun>0.00</pIBSMun>
+                            <vIBSMun>0.00</vIBSMun>
+                        </gIBSMun>
+                        <vIBS>644.88</vIBS>
+                        <gCBS>
+                            <pCBS>0.90</pCBS>
+                            <vCBS>5803.88</vCBS>
+                        </gCBS>
+                    </gIBSCBS>
+                </IBSCBS>
+                <vTotDFe>644875.45</vTotDFe>
+            </imp>
+            <infCTeNorm>
+                <infCarga>
+                    <vCarga>644875.45</vCarga>
+                    <proPred>GAS NATURAL</proPred>
+                    <infQ>
+                        <cUnid>00</cUnid>
+                        <tpMed>VOLUME</tpMed>
+                        <qCarga>10500000.0000</qCarga>
+                    </infQ>
+                </infCarga>
+                <infDoc>
+                    <infOutros>
+                        <tpDoc>00</tpDoc>
+                        <nDoc>4</nDoc>
+                        <dEmi>2026-04-30</dEmi>
+                        <vDocFisc>644875.45</vDocFisc>
+                    </infOutros>
+                </infDoc>
+                <infModal versaoModal="4.00">
+                    <duto>
+                        <vTar>59.175000</vTar>
+                        <dIni>2026-04-01</dIni>
+                        <dFim>2026-04-30</dFim>
+                        <classDuto>1</classDuto>
+                        <tpContratacao>0</tpContratacao>
+                        <codPontoEntrada>Canoas</codPontoEntrada>
+                        <codPontoSaida>Triunfo</codPontoSaida>
+                        <nContrato>000</nContrato>
+                    </duto>
+                </infModal>
+                <cobr>
+                    <fat/>
+                </cobr>
+            </infCTeNorm>
+            <autXML>
+                <CNPJ>04898488000177</CNPJ>
+            </autXML>
+            <infRespTec>
+                <CNPJ>07960929000101</CNPJ>
+                <xContato>Hivelog Soluções em Tecnologia da Informação</xContato>
+                <email>desenvolvimento@hivecloud.com.br</email>
+                <fone>8140628262</fone>
+            </infRespTec>
+        </infCte>
+        <infCTeSupl>
+            <qrCodCTe>https://dfe-portal.svrs.rs.gov.br/cte/qrCode?chCTe=43260403146349000124570010000001161000000000&tpAmb=1</qrCodCTe>
+        </infCTeSupl>
+        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+            <SignedInfo>
+                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+                <Reference URI="#CTe43260403146349000124570010000001161000000000">
+                    <Transforms>
+                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+                    </Transforms>
+                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+                    <DigestValue>NgvsmgOSV5nemK84yeqMqAXZPMA=</DigestValue>
+                </Reference>
+            </SignedInfo>
+            <SignatureValue>CGkzPiB01tFdE6QsyOOs2eOkJlBaFgep6JKktyuiryLr5I8B4yP2eh+VwYhoBTe7jUHfUhNvW+HQ /gBC92jGth97BbCDVLdS9KaZgjXReCE4avuuvrp7mImLGWj6nKPrH9qxIETfmMlzomjIXZ1GHOmg TgIXjDK4gXF0DZnZ8HMKY2zaGyLHeL5Ux4YgkPf4U4J4brS0JGOv/TJKEkW2cLif02l+09UeGCq+ GoZR5rdTOb0KPjH/oXuaTQB/yti+ohrmVhEBqDJ4xS5QsCo0W7ZhnIggJzeLyTDzZyiWRNaku/im ECs3Pao0C7ZKS+/eEZfP0BcirCzzhO6NuTjrLg==</SignatureValue>
+            <KeyInfo>
+                <X509Data>
+                    <X509Certificate>MIIHbDCCBVSgAwIBAgIMRiqeBUtnnPAcuMv7MA0GCSqGSIb3DQEBCwUAMIGJMQswCQYDVQQGEwJC UjETMBEGA1UECgwKSUNQLUJyYXNpbDE2MDQGA1UECwwtU2VjcmV0YXJpYSBkYSBSZWNlaXRhIEZl ZGVyYWwgZG8gQnJhc2lsIC0gUkZCMS0wKwYDVQQDDCRBdXRvcmlkYWRlIENlcnRpZmljYWRvcmEg U0VSUFJPUkZCdjUwHhcNMjMwNTMxMTczMDI0WhcNMjYwNTMwMTczMDI0WjCCARAxCzAJBgNVBAYT AkJSMRUwEwYDVQQHDAxQT1JUTyBBTEVHUkUxEzARBgNVBAoMCklDUC1CcmFzaWwxGTAXBgNVBAsM EHZpZGVvY29uZmVyZW5jaWExFzAVBgNVBAsMDjA3ODA4MjI0MDAwMTczMTYwNAYDVQQLDC1TZWNy ZXRhcmlhIGRhIFJlY2VpdGEgRmVkZXJhbCBkbyBCcmFzaWwgLSBSRkIxEDAOBgNVBAsMB0FSSU5W SUExFjAUBgNVBAsMDVJGQiBlLUNOUEogQTMxPzA9BgNVBAMMNlRSQU5TUE9SVEFET1JBIFNVTEJS QVNJTEVJUkEgREUgR0FTIFMgQTowMzE0NjM0OTAwMDEyNDCCASIwDQYJKoZIhvcNAQEBBQADggEP ADCCAQoCggEBAJGa5Pe83wmFa209vYNIypOK06CoVuij8jUyC9ASUz2UTTMdQUYIhRhwUOXzUedF U1UrRXnwI3r/Ofval8hBCX8ZmfadKTSPSu1R8G8cQQjvuzymySoGJDa3AkQYP7oE7y3rldPSve2V wJJWTYNCCaxuDJ9/PjVCRETgJ/FFSIsAG3tqyK7nbvtpsoaUBlYfMxV8shUXyPmKrNU57yQ1doky TYEFEbafwLs+IBcI/4YwqDqJ8RX2u4ORRPjl/NPkTbWr/Zh85ATU2UFu5qIfvNXsCRIIKJ9xaQB0 1sYZHVmFSgVoueFGjDZndnK8ge1nq+K+d6lkXuuARYwhgG7tRO0CAwEAAaOCAkgwggJEMB8GA1Ud IwQYMBaAFBSALZ1+mkXA8Vs/GdVAsG8vZeDpMIGIBgNVHR8EgYAwfjA8oDqgOIY2aHR0cDovL3Jl cG9zaXRvcmlvLnNlcnByby5nb3YuYnIvbGNyL2Fjc2VycHJvcmZidjUuY3JsMD6gPKA6hjhodHRw Oi8vY2VydGlmaWNhZG9zMi5zZXJwcm8uZ292LmJyL2xjci9hY3NlcnByb3JmYnY1LmNybDBWBggr BgEFBQcBAQRKMEgwRgYIKwYBBQUHMAKGOmh0dHA6Ly9yZXBvc2l0b3Jpby5zZXJwcm8uZ292LmJy L2NhZGVpYXMvYWNzZXJwcm9yZmJ2NS5wN2IwgbEGA1UdEQSBqTCBpqA4BgVgTAEDBKAvBC0wODA2 MTk2MTMxOTExODAzMDM0MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDCgIgYFYEwBAwKgGQQXV0FM VEVSIEVETUlMU09OIEZBUklPTEmgGQYFYEwBAwOgEAQOMDMxNDYzNDkwMDAxMjSgFwYFYEwBAweg DgQMMDAwMDAwMDAwMDAwgRJmYXJpb2xpQHRzYi5jb20uYnIwDgYDVR0PAQH/BAQDAgXgMB0GA1Ud JQQWMBQGCCsGAQUFBwMEBggrBgEFBQcDAjBbBgNVHSAEVDBSMFAGBmBMAQIDBDBGMEQGCCsGAQUF BwIBFjhodHRwOi8vcmVwb3NpdG9yaW8uc2VycHJvLmdvdi5ici9kb2NzL2RwY2Fjc2VycHJvcmZi LnBkZjANBgkqhkiG9w0BAQsFAAOCAgEAEg77tU/iUclUEkjEOb9iKnXYvrlMKL0eGsbmj9NpHc5b uBHe/Np2yz65iT1W/YPchKP/cKcTLQ9t6xH/t7iQhmZKyPZ1XCL9S5ry0oDSgxpEX+qiDPDMIX25 ulCkrHOF7E2XnNYbudPFnFGguozbwhV9GeeWbpm7sohovOv85DygB+7VIqt2GKS2Feihtlb5ygv9 yhWvNpvSiJ77s4GFV8Puo2fWqVWS79rMGQM6qXoVpd2Kvr31pc1oii3eNDKFztLOdg2MrA8ePyKo XE7cs24qCv7HMZ0A5Vlogp1Fd757r9eUfSRY12DZSGI+Da41Bp3h60jw7M8XmRqAsdxIzb9o6MME z17NciMZ4oA84g52ay+FYbAgHr6Z/4jDbJeIeppKqjgyMz/v+pu6BTNPy07dCdLHk60WZsDlpFhc s7sl4enpDzmEJKk42ACorq7LL0ODhpPUhOXtITXpySGuqW7FeRZS7M47KVm+YL2VnBGProLVn/i2 uwsppfvDGHv4ccomey2E+e+hVDJ31AlMTJ1TvLjZ5cc9DgKSpnJ0n79GZ48XJ+WabB3abRnsfL8z yQ+rph3pT00Kz7SqGKt8hNi/JdYxG3iesKP/+JVcEHe4y8VLX8o/yAusJI0kY7dvyr7ZwobNl93Y RPFqaQtUIFnm4zI2CSfvRKq/3I/+GOo=</X509Certificate>
+                </X509Data>
+            </KeyInfo>
+        </Signature>
+    </CTe>
+    <protCTe xmlns="http://www.portalfiscal.inf.br/cte" versao="4.00">
+        <infProt Id="CTe143260114869756">
+            <tpAmb>1</tpAmb>
+            <verAplic>RS20260417104230</verAplic>
+            <chCTe>43260403146349000124570010000001161000000000</chCTe>
+            <dhRecbto>2026-04-30T18:24:42-03:00</dhRecbto>
+            <nProt>143260114869756</nProt>
+            <digVal>NgvsmgOSV5nemK84yeqMqAXZPMA=</digVal>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso do CT-e</xMotivo>
+        </infProt>
+    </protCTe>
+</cteProc>

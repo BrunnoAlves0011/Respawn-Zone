@@ -9,6 +9,7 @@ import uvicorn
 from starlette.middleware.sessions import SessionMiddleware
 from datetime import datetime, timedelta, time
 import locale
+from pydantic import BaseModel
 
 import json
 import zipfile
@@ -37,8 +38,9 @@ def get_db():
         db.close()
 
 # Tela Inicial
-# @app.get("/", response_class=HTMLResponse)
-# def home(request: Request):
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
+    return RedirectResponse(url="/home", status_code=200)
 #     print(request.session.get("logged_in"))
 #     if request.session.get("logged_in"):
 #         return templates.TemplateResponse("signin.html", {"request": request}, Form=Form)
@@ -50,13 +52,38 @@ def get_db():
 # Tela Principal (HomePage)
 @app.get("/home", response_class=HTMLResponse)
 def homePage(request: Request, db: Session = Depends(get_db)):
-    # if request.session.get("logged_in"):
     jogos = db.query(Jogos).all()
+    banner = jogos[0]
 
-    return templates.TemplateResponse("home.html", {"request": request, "jogos": jogos})
-    # else:
-    #     return templates.TemplateResponse("signin.html", {"request": request})
+    if request.session.get("logged_in"):
+        flag = True
+        # username = request.session["username"]
+        username = 'Teste'
+        return templates.TemplateResponse("home.html", {"request": request, "jogos": jogos, "banner": banner, "flag": flag, "username": username})
+    else:
+        flag = False
+        return templates.TemplateResponse("home.html", {"request": request, "jogos": jogos, "banner": banner, "flag": flag})
 
+
+# Tela Quem Somos
+@app.get("/quem-somos", response_class=HTMLResponse)
+def quemSomos(request: Request, db: Session = Depends(get_db)):
+    return templates.TemplateResponse("quemsomos.html", {"request": request})
+
+
+
+
+# Tela Como Ativar
+@app.get("/como-ativar", response_class=HTMLResponse)
+def comoAtivar(request: Request, db: Session = Depends(get_db)):
+    return templates.TemplateResponse("comoativar.html", {"request": request})
+
+
+
+@app.get("/jogo/{id}", response_class=HTMLResponse)
+async def gamePage(id: int, request: Request, db: Session = Depends(get_db)):
+    jogo = db.query(Jogos).filter_by(id=id).first()
+    return templates.TemplateResponse("jogos.html", {"request": request, "jogo": jogo})
 
 
 # Tela Adicionar Jogo
@@ -148,31 +175,36 @@ def validar(request: Request, usuario: str = Form(...), senha: str = Form(...), 
 #         "success": success_msg
 #         })
 
-# @app.post("/cadastro", response_class=HTMLResponse)
-# def validar(request: Request, name: str = Form(...), usuario: str = Form(...), email: str = Form(...), senha: str = Form(...), db: Session = Depends(get_db)):
-#     user_existed = db.query(Users).filter(Users.username == usuario).first()
-#     profile_existed = db.query(Perfil).filter(Perfil.username == usuario).first()
+class CadastroRequest(BaseModel):
+    email: str
+    senha: str
+    csenha: str
 
-#     data = datetime.now().strftime("%Y-%m-%d")
-#     data_obj = datetime.strptime(data, "%Y-%m-%d").date()
+@app.post("/cadastro")
+def validar(dados: CadastroRequest, request: Request, db: Session = Depends(get_db)):
+    user_existed = db.query(Users).filter(Users.email == dados.email).first()
+    # profile_existed = db.query(Perfil).filter(Perfil.username == usuario).first()
 
-#     if not user_existed and not profile_existed:
-#         novo_usuario = Users(username=usuario, senha=senha)
-#         novo_perfil = Perfil(nome=name, username=usuario, email=email, created_at=data_obj)
-#         db.add(novo_usuario)
-#         db.add(novo_perfil)
-#         db.commit()
-#         return RedirectResponse(url="/login", status_code=303)
-#     else:
-#         return RedirectResponse(url="/cadastro?error=user_existed", status_code=303)
+    data = datetime.now().strftime("%Y-%m-%d")
+    data_obj = datetime.strptime(data, "%Y-%m-%d").date()
+
+    if not user_existed: #and not profile_existed:
+        novo_usuario = Users(email=dados.email, senha=dados.senha, created_at=data_obj)
+        # novo_perfil = Perfil(nome=name, username=usuario, email=email, created_at=data_obj)
+        db.add(novo_usuario)
+        # db.add(novo_perfil)
+        db.commit()
+        return {"status": 200}
+    else:
+        return {"status": 400}
     
 
 
 # Ação Logout
-# @app.get("/logout")
-# def logout(request: Request):
-#     request.session.clear()
-#     return RedirectResponse(url="/", status_code=200)
+@app.get("/logout")
+def logout(request: Request):
+    request.session.clear()
+    return RedirectResponse(url="/home", status_code=200)
 
 
 

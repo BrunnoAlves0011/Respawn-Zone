@@ -28,8 +28,9 @@ class Jogos(Base):
 class Users(Base):
     __tablename__ = "users"
     id            = Column(Integer, primary_key=True, index=True)
-    username      = Column(String(60), nullable=False)
+    email         = Column(String(60), nullable=False)
     senha         = Column(String(30), nullable=False)
+    created_at    = Column(Date, nullable=False)
 
 class Perfil(Base):
     __tablename__ = "perfil"

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <title>Quem Somos</title>
+</head>
+
+<body>
+    <div id="container-topo"></div>
+    <main class="pagina-info">
+        <div class="info-box">
+            <h1>Quem Somos</h1>
+            <p>
+                A Respawn-Zone nasceu com o objetivo de oferecer jogos digitais com rapidez,
+                segurança e preços acessíveis para jogadores de todas as plataformas.
+            </p>
+            <p>
+                Trabalhamos com chaves originais para PC, PlayStation e Xbox,
+                garantindo entrega imediata após a compra.
+            </p>
+            <p>
+                Nosso foco é proporcionar uma experiência simples, confiável e acessível
+                para gamers apaixonados.
+            </p>
+        </div>
+    </main>
+    <div id="container-footer"></div>
+    <script>
+        fetch("/static/home/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-topo").innerHTML = data;
+                ativarPesquisa();
+            });
+        fetch("/static/home/footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("container-footer").innerHTML = data);
+    </script>
+</body>
+
+</html>
