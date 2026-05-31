@@ -4,76 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/home/style.css">
-   <script src="../static/home/jogos.js" defer></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <script src="/static/js/script_home.js"></script>
     <title>Respawn-Zone</title>
 </head>
-
-<h1>
-    <div id="container-topo"></div>
-
-<script>
-     fetch("topo.html")
-.then(response => response.text())
-.then(data => {
-    document.getElementById("container-topo").innerHTML = data;
-
-    ativarPesquisa(); // 🔥 ESSENCIAL
-});
-</script>
-
+<div id="container-topo"></div>
 <main class="produto-container">
-    
     <div class="produto-box">
-
         <div class="produto-imagem">
-            <img id="img">
+            <img src="{{ jogo.img }}" alt="{{ jogo.name }}">
         </div>
-
         <div class="produto-info">
-            <h1 id="nome"></h1>
-          <p id="preco" class="preco"></p>
-          <p id="desc" class="descricao-produto"></p>
-            <button class="btn-finalizar">
-                Finalizar Compra
+            <h1>{{ jogo.nome }}</h1>
+            {% if jogo.precod != jogo.preco %}
+            <p class="preco">
+                <span style="text-decoration: line-through; color: gray;">R$ {{ jogo.preco }}</span>
+                R$ {{ jogo.precod }}
+            </p>
+            {% else %}
+            <p class="preco">R$ {{ jogo.preco }}</p>
+            {% endif %}
+            <p class="descricao-produto">{{ jogo.desc }}</p>
+            <button class="btn-finalizar" onclick="adicionarCarrinho('{{ jogo.id }}')">
+                Adicionar ao Carrinho
             </button>
         </div>
-
     </div>
-
 </main>
-              <div id="container-footer"></div>
-
+<div id="container-footer"></div>
 <script>
-    fetch("cards.html")
-    .then(response => response.text())
-    .then(data => {
+    fetch("/static/home/header.html").then(response => response.text()).then(data => {
+        document.getElementById("container-topo").innerHTML = data;
+        ativarPesquisa();
+        carregaUsuario();
+    });
+    fetch("/static/home/cards.html").then(response => response.text()).then(data => {
         document.getElementById("container-cards").innerHTML = data;
-
-         ativarPesquisa();
+        ativarPesquisa();
     });
 
-    fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
+    fetch("/static/home/footer.html").then(response => response.text()).then(data => {
         document.getElementById("container-footer").innerHTML = data;
     });
 
-</script>
-<script>
-
-document.getElementById("nome").innerHTML =
-localStorage.getItem("nomeJogo");
-
-document.getElementById("preco").innerHTML =
-localStorage.getItem("precoJogo");
-
-document.getElementById("img").src =
-localStorage.getItem("imagemJogo");
-
-document.getElementById("desc").innerHTML =
-localStorage.getItem("descricaoJogo");
-
+    document.getElementById("nome").innerHTML = localStorage.getItem("nomeJogo");
+    document.getElementById("preco").innerHTML = localStorage.getItem("precoJogo");
+    document.getElementById("img").src = localStorage.getItem("imagemJogo");
+    document.getElementById("desc").innerHTML = localStorage.getItem("descricaoJogo");
 </script>
 </body>
 

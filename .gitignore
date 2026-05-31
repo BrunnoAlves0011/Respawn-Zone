@@ -1,0 +1,6 @@
+/teste
+*.json
+*.sql
+*.db
+test*js
+script*

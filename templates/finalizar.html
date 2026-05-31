@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="/static/js/script_home.js"></script>
+    <title>Respawn-Zone</title>
+</head>
+
+<body>
+    <div id="container-topo"></div>
+    <main class="checkout-container">
+        <section class="checkout-produtos">
+            <h2>Finalizar Compra</h2>
+            <div id="lista-jogos"></div>
+        </section>
+
+        <section class="checkout-pagamento">
+            <h3>Resumo do Pedido</h3>
+            <div class="cupom-container">
+                <label>Cupom de Desconto</label>
+                <div class="cupom-input">
+                    <input type="text" id="cupom" placeholder="Digite seu cupom">
+                    <button>
+                        Aplicar
+                    </button>
+                </div>
+            </div>
+            <div class="metodos-pagamento">
+                <h4>Forma de Pagamento</h4>
+                <label class="payment-option">
+                    <input type="radio" name="pagamento" value="pix" checked>
+                    <div class="payment-card">
+                        <i class="fa-brands fa-pix"></i>
+                        <span>PIX</span>
+                    </div>
+                </label>
+                <label class="payment-option">
+                    <input type="radio" name="pagamento" value="credito">
+                    <div class="payment-card">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <span>Cartão de Crédito</span>
+                    </div>
+                </label>
+                <label class="payment-option">
+                    <input type="radio" name="pagamento" value="debito">
+                    <div class="payment-card">
+                        <i class="fa-solid fa-money-check-dollar"></i>
+                        <span>Cartão de Débito</span>
+                    </div>
+                </label>
+                <label class="payment-option">
+                    <input type="radio" name="pagamento" value="boleto">
+                    <div class="payment-card">
+                        <i class="fa-solid fa-barcode"></i>
+                        <span>Boleto Bancário</span>
+                    </div>
+                </label>
+            </div>
+            <div class="total-container">
+                <span>Total</span>
+                <strong id="valor-total"></strong>
+            </div>
+            <button class="btn-finalizar">
+                Finalizar Compra
+            </button>
+        </section>
+    </main>
+    <div id="container-footer"></div>
+    <script>
+        fetch("/static/home/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-topo").innerHTML = data;
+                ativarPesquisa();
+                carregaUsuario();
+                carregaCarrinhoFim();
+            });
+        fetch("/static/home/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-footer").innerHTML = data;
+            });
+    </script>
+</body>
+
+</html>

@@ -4,39 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/home/style.css">
-    <script src="../static/home/script.js"></script>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script src="/static/js/script_home.js"></script>
     <title>Respawn-Zone</title>
 </head>
 
 <body>
     <div id="container-topo"></div>
+    <div id="container-topo"></div>
     <header>
-   <section class="main-banner" id="main-banner">
+        <section class="main-banner" id="main-banner">
             <div class="banner-content">
-                <div class="banner-item">
+                <div class="banner-item" style="background-image: url('{{ banner.img }}')">
                     <div class="container">
                         <div class="banner-text">
                             <span class="badge">DESTAQUE DA SEMANA</span>
-                            <h1>ELDEN RING: SHADOW OF THE ERDTREE</h1>
+                            <h1>{{ banner.nome }}</h1>
                             <p>Garanta sua expansão oficial com entrega imediata e o melhor preço do mercado.</p>
                             <div class="banner-actions">
-                                <a href="#"
-class="btn-primary"
-
-data-nome="ELDEN RING: SHADOW OF THE ERDTREE"
-
-data-preco="<span style='text-decoration: line-through; color: gray;'>R$ 249,90</span> R$ 199,90"
-
-data-img="../static/img/elden2.png"
-
-data-desc="Explore a nova expansão de Elden Ring com novos chefes, áreas inéditas e desafios brutais no universo de Shadow of the Erdtree."
-
-onclick="comprarBanner(this)">
-
-COMPRAR AGORA
-
-</a>
+                                <a href="#" class="btn-primary" data-nome="{{ banner.nome }}"
+                                    data-preco="<span style='text-decoration: line-through; color: gray;'>R$ 249,90</span> R$ 199,90"
+                                    data-img="{{ banner.img }}"
+                                    data-desc="{{ banner.desc }}"
+                                    onclick="comprarJogo('{{ banner.id }}')">
+                                    COMPRAR AGORA
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -44,34 +36,65 @@ COMPRAR AGORA
             </div>
         </section>
     </header>
-<div id="container-cards"></div>
-      
-        <div id="container-footer"></div>
+    <main>
+        <section class="jogos">
+            <!-- CRIAR OS CARDS DE JOGOS A PARTIR DO RETORNO DE TABELA BACKEND-->
+            {% for jogo in jogos %}
+            {% if jogo.id != 1 %}
+            <div class="card-jogo" data-categoria="{{ jogo.categoria[0].lower() }}"
+                data-plataforma="{{ jogo.plataforma[0].lower() }}">
 
-<script>
-    fetch("topo.html")
-.then(response => response.text())
-.then(data => {
-    document.getElementById("container-topo").innerHTML = data;
+                {% if jogo.desconto > 0 %}
+                <span class="desconto">-{{ "%g" | format(jogo.desconto | float) }}%</span>
+                {% endif %}
 
-    ativarPesquisa(); // 🔥 ESSENCIAL
-    atualizarLogin(); // se tiver login também
-});
+                <img src="{{ jogo.img }}" alt="{{ jogo.name }}">
+                <h2>{{ jogo.nome }}</h2>
 
-fetch("cards.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("container-cards").innerHTML = data;
+                {% if jogo.precod != jogo.preco %}
+                <p class="preco">
+                    <span style="text-decoration: line-through; color: gray;">R$ {{ jogo.preco }}</span>
+                    R$ {{ jogo.precod }}
+                </p>
+                {% else %}
+                <p class="preco">R$ {{ jogo.preco }}</p>
+                {% endif %}
 
-         ativarPesquisa();
-    });
-
-    fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("container-footer").innerHTML = data;
-    });
-</script>
+                <div class="sinopse-container">
+                    <p class="sinopse">
+                        {{ jogo.desc }}
+                    </p>
+                </div>
+                <span class="ver-mais" onclick="openView(this)">Ver mais</span>
+                <button onclick="comprarJogo('{{ jogo.id }}')">Comprar</button>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </section>
+    </main>
+    <!-- <div id="container-cards"></div> -->
+    <div id="container-footer"></div>
+    <script>
+        fetch("/static/home/header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-topo").innerHTML = data;
+                ativarPesquisa();
+                // atualizarLogin();
+                carregaUsuario();
+            });        
+        fetch("/static/home/cards.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-cards").innerHTML = data;
+                ativarPesquisa();
+            });
+        fetch("/static/home/footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("container-footer").innerHTML = data;
+            });
+    </script>
 </body>
 
 </html>
