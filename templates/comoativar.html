@@ -24,6 +24,7 @@
             .then(data => {
                 document.getElementById("container-topo").innerHTML = data;
                 ativarPesquisa(); 
+                carregaUsuario();
             });
         fetch("/static/home/footer.html")
             .then(res => res.text())

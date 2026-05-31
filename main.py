@@ -125,6 +125,43 @@ def addJogo(request: Request,
 
 
 
+# CarregaUser
+@app.get('/api/carregaUser')
+def carregaUser(request: Request):
+
+    if request.session.get("logged_in"):
+        username = request.session["username"]
+        return {
+            "logado": True,
+            "nome": username,
+        }
+    return {
+        "logado": False
+    }
+
+# ProcuraJogo
+class ProcuraJogo(BaseModel):
+    id: int
+
+@app.post('/api/procuraJogo')
+def procuraJogo(dados: ProcuraJogo, db: Session = Depends(get_db)):
+
+    jogo = db.query(Jogos).filter_by(id=dados.id).first()
+
+    if jogo.preco != jogo.precod:
+        valor = jogo.precod
+    else:
+        valor = jogo.preco
+
+    return {
+        "id": jogo.id,
+        "name": jogo.nome,
+        "valor": valor,
+        "img": jogo.img
+    }
+
+
+
 # Tela Login
 @app.get("/login", response_class=HTMLResponse)
 def login(request: Request, error: str = None, success: str = None):
@@ -141,14 +178,14 @@ def login(request: Request, error: str = None, success: str = None):
         })
 
 @app.post("/login", response_class=HTMLResponse)
-def validar(request: Request, usuario: str = Form(...), senha: str = Form(...), db: Session = Depends(get_db)):
-    user = db.query(Users).filter_by(username=usuario, senha=senha).first()
+def validar(request: Request, email: str = Form(...), senha: str = Form(...), db: Session = Depends(get_db)):
+    user = db.query(Users).filter_by(email=email, senha=senha).first()
     if user:
         print('Logado com sucesso')
-        perfil = db.query(Perfil).filter_by(username = user.username).first()
+        perfil = db.query(Perfil).filter_by(email = user.email).first()
         request.session["logged_in"] = True
-        request.session["username"] = user.username
-        request.session["user"] = perfil.nome
+        request.session["email"] = user.email
+        request.session["username"] = perfil.username
         return RedirectResponse(url='/home', status_code=303)
     else:
         print('Erro ao entrar')
@@ -157,46 +194,46 @@ def validar(request: Request, usuario: str = Form(...), senha: str = Form(...), 
 
 
 # Tela Cadastro
-# @app.get("/cadastro", response_class=HTMLResponse)
-# def cadastro(request: Request, error: str = None, success: str = None):
+@app.get("/cadastro", response_class=HTMLResponse)
+def cadastro(request: Request, error: str = None, success: str = None):
 
-#     error_msg = None
-#     success_msg = None
+    error_msg = None
+    success_msg = None
     
-#     if error == "user_existed":
-#         error_msg = "Usuario já existe!"
+    if error == "user_existed":
+        error_msg = "Usuario já existe!"
     
-#     if success == "created":
-#         success_msg = "Conta criada com sucesso!"
+    if success == "created":
+        success_msg = "Conta criada com sucesso!"
 
-#     return templates.TemplateResponse("signup.html", {
-#         "request": request,
-#         "error": error_msg,
-#         "success": success_msg
-#         })
+    return templates.TemplateResponse("signup.html", {
+        "request": request,
+        "error": error_msg,
+        "success": success_msg
+        })
 
 class CadastroRequest(BaseModel):
     email: str
     senha: str
     csenha: str
 
-@app.post("/cadastro")
-def validar(dados: CadastroRequest, request: Request, db: Session = Depends(get_db)):
-    user_existed = db.query(Users).filter(Users.email == dados.email).first()
-    # profile_existed = db.query(Perfil).filter(Perfil.username == usuario).first()
+@app.post("/cadastro", response_class=HTMLResponse)
+def validar(request: Request, usuario: str = Form(...), email: str = Form(...), senha: str = Form(...), db: Session = Depends(get_db)):
+    user_existed = db.query(Users).filter(Users.email == email).first()
+    profile_existed = db.query(Perfil).filter(Perfil.username == usuario).first()
 
     data = datetime.now().strftime("%Y-%m-%d")
     data_obj = datetime.strptime(data, "%Y-%m-%d").date()
 
-    if not user_existed: #and not profile_existed:
-        novo_usuario = Users(email=dados.email, senha=dados.senha, created_at=data_obj)
-        # novo_perfil = Perfil(nome=name, username=usuario, email=email, created_at=data_obj)
+    if not user_existed and not profile_existed:
+        novo_usuario = Users(email=email, senha=senha, created_at=data_obj)
+        novo_perfil = Perfil(username=usuario, email=email, created_at=data_obj)
         db.add(novo_usuario)
-        # db.add(novo_perfil)
+        db.add(novo_perfil)
         db.commit()
-        return {"status": 200}
+        return RedirectResponse(url="/login", status_code=303)
     else:
-        return {"status": 400}
+        return RedirectResponse(url="/cadastro?error=user_existed", status_code=303)
     
 
 
@@ -207,6 +244,11 @@ def logout(request: Request):
     return RedirectResponse(url="/home", status_code=200)
 
 
+
+# Finalizar Compra
+@app.get("/finalizar", response_class=HTMLResponse)
+def finalizar(request: Request, db: Session = Depends(get_db)):
+    return templates.TemplateResponse("finalizar.html", {"request": request})
 
 # Ação Del Conta
 # @app.delete("/perfil/excluir-conta/{user}")

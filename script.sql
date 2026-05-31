@@ -132,7 +132,7 @@ VALUES
     9,
     'Spider-Man 2',
     'Peter Parker e Miles Morales enfrentam novas ameaças em uma aventura cinematográfica cheia de ação pela cidade de Nova York.',
-    '/static/img/spiderman2.jpg.jpg',
+    '/static/img/spiderman2.jpg',
     '["Aventura"]',
     '["Playstation"]',
     289.90,
@@ -216,3 +216,6 @@ VALUES
     299.90,
     25
 );
+UPDATE jogos SET img = '/static/img/elden.jpg' WHERE id = 1;
+UPDATE jogos SET img = '/static/img/cyberpunk.jpg' WHERE id = 8;
+UPDATE jogos SET img = '/static/img/spiderman2.jpg' WHERE id = 9;

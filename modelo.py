@@ -35,7 +35,6 @@ class Users(Base):
 class Perfil(Base):
     __tablename__ = "perfil"
     id            = Column(Integer, primary_key=True, index=True)
-    nome          = Column(String(60), nullable=False)
     username      = Column(String(60), nullable=False)
     email         = Column(String(60), nullable=False)
     created_at    = Column(Date, nullable=False)

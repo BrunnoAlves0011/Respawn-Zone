@@ -11,15 +11,16 @@
 </head>
 
 <body>
-    <button id="bt-voltar" onclick="voltar()">Voltar</button>
     <div id="toast-container"></div>
     <div class="login-container">
-        <div class="icon"></div>
+        <a href="/home">
+            <div class="icon"></div>
+        </a>
         <h1>Login</h1>
         <form action="/login" method="post">
             <div class="form-group">
-                <label for="usuario">Nome Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
 
             <div class="form-group">
@@ -30,10 +31,7 @@
             <input type="submit" value="LOGIN" />
         </form>
         <div class="cadastro-link">
-            <a href="/register">Não tem uma conta? Cadastre-se aqui</a>
-        </div>
-        <div style="margin-top: 15px; text-align: center;">
-            <a href="/sobre" style="color: #667eea; text-decoration: none; font-size: 14px;">ℹ️ Sobre o Projeto</a>
+            <a href="/cadastro">Não tem uma conta? Cadastre-se aqui</a>
         </div>
     </div>
     <script>

@@ -24,53 +24,13 @@
                     R$ 0,00
                 </strong>
             </div>
-            <button class="btn-checkout">
-                Continuar Compra
+            <button class="btn-checkout" onclick="finalizarCompra()">
+                Finalizar Compra
             </button>
         </div>
     </div>
 
-    <div class="login-container">
-        <button class="login-btn" id="btnLogin" onclick="login()">
-            Entrar
-        </button>
-        <!-- <button class="login-btn" id="btnLogin" onclick="abrirModal('login')">
-            Minha Conta
-        </button>
-        <div id="modal" class="login-dropdown">
-            <div id="formLogin">
-                <input type="email" placeholder="E-mail" id="logmail">
-                <input type="password" placeholder="Senha" id="logpass">
-                <div class="msg-login">
-                    <p>
-                        Não tem uma conta?
-                        <a href="#" onclick="trocarFormulario('cadastro')">
-                            Registre-se
-                        </a>
-                    </p>
-                </div>
-                <button onclick="login()">
-                    Entrar
-                </button>
-            </div>
-            <div id="formCadastro" style="display: none;">
-                <input type="email" placeholder="E-mail" id="regmail">
-                <input type="password" placeholder="Senha" id="regpass">
-                <input type="password" placeholder="Confirmar Senha" id="regcpass">
-                <div class="msg-login">
-                    <p>
-                        Já possui uma conta?
-                        <a href="#" onclick="trocarFormulario('login')">
-                            Entrar
-                        </a>
-                    </p>
-                </div>
-                <button onclick="registro()">
-                    Registrar
-                </button>
-            </div>
-        </div> -->
-    </div>
+    <div class="login-container" id="btUser"></div><!-- Carregado pelo backend -->
 </header>
 <nav class="categories-bar">
     <div class="cat-container">

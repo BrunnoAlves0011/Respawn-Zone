@@ -14,7 +14,7 @@
     <header>
         <section class="main-banner" id="main-banner">
             <div class="banner-content">
-                <div class="banner-item">
+                <div class="banner-item" style="background-image: url('{{ banner.img }}')">
                     <div class="container">
                         <div class="banner-text">
                             <span class="badge">DESTAQUE DA SEMANA</span>
@@ -25,7 +25,7 @@
                                     data-preco="<span style='text-decoration: line-through; color: gray;'>R$ 249,90</span> R$ 199,90"
                                     data-img="{{ banner.img }}"
                                     data-desc="{{ banner.desc }}"
-                                    onclick="comprarBanner(this)">
+                                    onclick="comprarJogo('{{ banner.id }}')">
                                     COMPRAR AGORA
                                 </a>
                             </div>
@@ -79,8 +79,9 @@
             .then(data => {
                 document.getElementById("container-topo").innerHTML = data;
                 ativarPesquisa();
-                atualizarLogin();
-            });
+                // atualizarLogin();
+                carregaUsuario();
+            });        
         fetch("/static/home/cards.html")
             .then(response => response.text())
             .then(data => {

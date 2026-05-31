@@ -1,31 +1,3 @@
-// document.addEventListener('DOMContentLoaded', () => {
-
-//     const openBtn = document.getElementById('openSidebar');
-//     const closeBtn = document.getElementById('closeSidebar');
-//     const sidebar = document.getElementById('sidebar');
-//     const overlay = document.getElementById('sidebarOverlay');
-//     const toggleDropdownBtn = document.getElementById('toggleDropdown');
-//     const sidebarCatContent = document.getElementById('sidebarCatContent');
-
-//     openBtn.addEventListener('click', () => {
-//         sidebar.classList.add('active');
-//         overlay.classList.add('active');
-//     });
-//     const closeMenu = () => {
-//         sidebar.classList.remove('active');
-//         overlay.classList.remove('active');
-//     };
-
-//     closeBtn.addEventListener('click', closeMenu);
-//     overlay.addEventListener('click', closeMenu);
-//     toggleDropdownBtn.addEventListener('click', () => {
-//         sidebarCatContent.classList.toggle('active');
-//     });
-// });
-
-// function abrirModal() {
-//     document.getElementById("dropdown").classList.toggle("show");
-// }
 
 function abrirModal(tipo) {
     const modal = document.getElementById("modal");
@@ -48,31 +20,17 @@ function trocarFormulario(tipo) {
     }
 }
 
-window.addEventListener("click", function (e) {
-
-    const dropdown = document.getElementById("dropdown");
-    const button = document.getElementById("btnLogin");
-
-    if (
-        !dropdown.contains(e.target) &&
-        e.target !== button
-    ) {
-        dropdown.classList.remove("show");
-    }
-});
-
 function toggleCarrinho() {
     const cart = document.getElementById("cartDropdown");
     cart.classList.toggle("show");
     carregarCarrinho();
 }
 
-// FECHAR AO CLICAR FORA
 window.addEventListener("click", function (e) {
     const cart = document.getElementById("cartDropdown");
     const btn = document.getElementById("btnCarrinho");
 
-    if (!cart.contains(e.target) && e.target !== btn ) {
+    if (!cart.contains(e.target) && e.target !== btn) {
         cart.classList.remove("show");
     }
 });
@@ -97,35 +55,132 @@ function carregarCarrinho() {
     }
 
     carrinho.forEach(jogo => {
-        total += jogo.preco;
+        total += jogo.valor * jogo.quantidade;
         cartItems.innerHTML += `
                 <div class="cart-item">
+                    <img src="${jogo.img}" class="cart-item-img" alt="${jogo.name}" >
                     <div class="cart-item-info">
                         <span class="cart-item-title">
-                            ${jogo.nome}
+                            ${jogo.name}
                         </span>
-                        <span class="cart-item-price">
-                            R$ ${jogo.preco.toFixed(2)}
-                        </span>
+                        <div class="cart-item-price">
+                            R$ ${jogo.valor.toFixed(2)}
+                            ${jogo.quantidade > 1 ? `x${jogo.quantidade}` : ''}
+                        </div>
                     </div>
+                    <button class="btn-remove" onclick="removerCarrinho(${jogo.id}, 0)">
+                        ✕
+                    </button>
                 </div>
             `;
     });
-    cartTotal.innerText =
-        `R$ ${total.toFixed(2)}`;
+    cartTotal.innerText = `R$ ${total.toFixed(2)}`;
 }
 
-function adicionarCarrinho(nome, preco) {
+function carregaCarrinhoFim() {
+    const checkItems = document.getElementById("lista-jogos");
+    const checkTotal = document.getElementById("valor-total");
     const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    carrinho.push({
-        nome,
-        preco
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    if (carrinho.length === 0) {
+        checkItems.innerHTML = `
+                <p style="color:#b8b8d1;">
+                    Seu carrinho está vazio
+                </p>
+            `;
+        checkTotal.innerText = "R$ 0,00";
+        return;
+    }
+
+    carrinho.forEach(jogo => {
+        total += jogo.valor * jogo.quantidade;
+        checkItems.innerHTML += `
+                <div class="checkout-item">
+                    <img src="${jogo.img}">
+                    <div class="item-info">
+                        <h3>${jogo.name}</h3>
+                        <span>Quantidade: x${jogo.quantidade}</span>
+                    </div>
+                    <div class="item-preco">
+                        R$ ${jogo.valor.toFixed(2)}
+                           ${jogo.quantidade > 1 ? `x${jogo.quantidade}` : ''}
+                    </div>
+                    <button class="btn-remove" onclick="removerCarrinho(${jogo.id}, 1)">
+                        ✕
+                    </button>
+                </div>
+            `;
     });
+
+    checkTotal.innerText = `R$ ${total.toFixed(2)}`;
+}
+
+async function adicionarCarrinho(id) {
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const response = await fetch('/api/procuraJogo', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id
+        })
+    });
+
+    const produto = await response.json();
+    id = Number(id);
+    const itemExiste = carrinho.findIndex(
+        item => item.id === id
+    );
+
+    if(itemExiste != undefined && itemExiste > -1){
+        carrinho[itemExiste].quantidade++;
+    } else {
+        carrinho.push({
+            ...produto,
+            quantidade: 1
+        })
+    }
 
     localStorage.setItem(
         "carrinho",
         JSON.stringify(carrinho)
     );
+
+    carregarCarrinho();
+
+}
+
+function removerCarrinho(id, fun){
+
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const index = carrinho.findIndex(
+        item => item.id === id
+    );
+
+    if(index === -1) return;
+
+    if(carrinho[index].quantidade > 1){
+        carrinho[index].quantidade--;
+    } else {
+        carrinho.splice(index, 1);
+    }
+
+    localStorage.setItem(
+        "carrinho",
+        JSON.stringify(carrinho)
+    );
+
+    carregarCarrinho();
+
+    if (fun == 1) {
+        window.location.reload();
+    }
+
 }
 
 function openView(box) {
@@ -147,16 +202,6 @@ function openView(box) {
 
 function comprarJogo(jogoId) {
     window.location.href = `/jogo/${jogoId}`;
-}
-
-function comprarBanner(botao) {
-
-    const nome = botao.dataset.nome;
-    const preco = botao.dataset.preco;
-    const imagem = botao.dataset.img;
-    const descricao = botao.dataset.desc;
-
-    window.location.href = "/jogo";
 }
 
 function ativarPesquisa() {
@@ -262,42 +307,42 @@ function esconderBanner() {
 }
 
 async function login() {
-    
+    window.location.href = "/login";
 }
 
-async function registro() {
-    const email = document.getElementById("regmail");
-    const senha = document.getElementById("regpass");
-    const csenha = document.getElementById("regcpass");
+async function carregaUsuario() {
+    try {
+        const response = await fetch('/api/carregaUser', {
+            credentials: "include"
+        });
 
-    if (senha.value != csenha.value) {
-        showToast("Senhas não são iguais");
+        const user = await response.json();
+
+        const btUser = document.getElementById("btUser");
+
+        if (user.logado) {
+            // btUser.innerHTML = `
+            //             <button class="login-btn" id="btnLogin" onclick="minhaConta()">
+            //                 Minha Conta
+            //             </button>
+            //         `;
+            btUser.innerHTML = `
+                <span class="logged-user" onclick="minhaConta()">
+                    ${user.nome}
+                </span>
+            `;
+        } else {
+            btUser.innerHTML = `
+                <button class="login-btn" id="btnLogin" onclick="login()">
+                    Entrar
+                </button>
+                `;
+        }
+    } catch (error) {
+        console.log(error);
     }
+}    
 
-    if (!validaEmail(email)) {
-        showToast("Email invalido");
-    }
-
-    fetch('/cadastro', {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email,
-            pass: senha,
-            cpass: csenha
-        })
-    }).then(res => res.json())
-      .then(data => {
-        if(data.status === 200) showToast("Conta criada com sucesso")
-        if(data.status === 400) showToast("Erro ao criar conta")
-      })
-      .catch(error => showToast("Erro interno"));
-
-}
-
-function validaEmail(email){
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email)
+function finalizarCompra() {
+    window.location.href = "/finalizar";
 }
