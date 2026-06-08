@@ -5,10 +5,14 @@
         </a>
     </div>
     <div class="search-box">
-        <input id="placeholder" type="text" placeholder="Pesquisar..."
-            onclick="if(!window.location.pathname.includes('home')) window.location.replace('/home')">
-        <button onclick="if(!window.location.pathname.includes('home')) window.location.replace('/home')">🔍</button>
-    </div>
+    <input id="placeholder" type="text" placeholder="Buscar jogos..."
+        onclick="if(!window.location.pathname.includes('home')) window.location.replace('/home')">
+
+    <button class="search-btn"
+        onclick="if(!window.location.pathname.includes('home')) window.location.replace('/home')">
+        🔍
+    </button>
+</div>
     <div class="cart-container">
         <button id="btnCarrinho" onclick="toggleCarrinho()">
             🛒 Carrinho

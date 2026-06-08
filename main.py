@@ -272,3 +272,14 @@ def finalizar(request: Request, db: Session = Depends(get_db)):
 
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
+
+from fastapi.responses import HTMLResponse
+from fastapi import Request
+
+@app.get("/quemsomos", response_class=HTMLResponse)
+def quem_somos(request: Request):
+    return templates.TemplateResponse("quemsomos.html", {"request": request})
+
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
