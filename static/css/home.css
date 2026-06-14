@@ -1161,3 +1161,78 @@ header .search-box button {
     cursor: pointer !important;
 }
 
+.main-banner {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.banner-item {
+    position: absolute;
+    inset: 0;
+
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+    transition: opacity 0.5s ease;
+
+    display: flex;
+    align-items: center;
+}
+
+.banner-item.ativo {
+    opacity: 1;
+    z-index: 1;
+    align-items: center;
+}
+
+/* CARD AZUL */
+.banner-content {
+    margin-left: 60px;
+
+    max-width: 420px;
+
+    background: #1a044d;
+    padding: 25px;
+    border-radius: 12px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+
+    transition: 0.4s ease;
+    transform: translateX(-10px);
+}
+
+/* TEXTO */
+.banner-content h1 {
+    font-size: 34px;
+    margin: 0;
+    color: white;
+}
+
+.banner-content p {
+    font-size: 16px;
+    margin: 0;
+    color: white;
+}
+
+/* BOTÃO */
+.btn-primary {
+    margin-top: 10px;
+    padding: 12px 22px;
+    background: #4566ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+
+    width: fit-content;
+}

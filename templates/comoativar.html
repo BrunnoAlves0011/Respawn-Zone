@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/home.css">
+     <script src="/static/js/script_home.js"></script>
     <title>Como Ativar</title>
 </head>
 <body>
@@ -19,16 +20,15 @@
     </main>
     <div id="container-footer"></div>
     <script>
-        fetch("/static/home/header.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("container-topo").innerHTML = data;
-                ativarPesquisa(); 
-                carregaUsuario();
-            });
-        fetch("/static/home/footer.html")
-            .then(res => res.text())
-            .then(data => document.getElementById("container-footer").innerHTML = data);
+        fetch("/static/home/header.html").then(response => response.text()).then(data => {
+        document.getElementById("container-topo").innerHTML = data;
+        ativarPesquisa();
+        carregaUsuario();
+    });
+
+    fetch("/static/home/footer.html").then(response => response.text()).then(data => {
+        document.getElementById("container-footer").innerHTML = data;
+    });
     </script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<header class="topbar">
+    <div class="logo">
+        <a href="/home">
+            <img id="logo" src="/static/img/logo.png">
+        </a>
+    </div>
+    <div class="search-box">
+    <input id="placeholder" type="text" placeholder="Buscar jogos..."
+        onclick="if(!window.location.pathname.includes('home')) window.location.replace('/home')">
+
+    <button class="search-btn"
+        onclick="if(!window.location.pathname.includes('home')) window.location.replace('/home')">
+        🔍
+    </button>
+</div>
+    <div class="cart-container">
+        <button id="btnCarrinho" onclick="toggleCarrinho()">
+            🛒 Carrinho
+        </button>
+        <div id="cartDropdown" class="cart-dropdown">
+            <h3>
+                Seu Carrinho
+            </h3>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <strong id="cartTotal">
+                    R$ 0,00
+                </strong>
+            </div>
+            <button class="btn-checkout" onclick="finalizarCompra()">
+                Finalizar Compra
+            </button>
+        </div>
+    </div>
+
+    <div class="login-container" id="btUser"></div><!-- Carregado pelo backend -->
+</header>
+<nav class="categories-bar">
+    <div class="cat-container">
+        <a href="#" class="cat-link destaque" onclick="filtrarOfertas()">
+            OFERTAS
+        </a>
+        <a href="#" class="cat-link" onclick="filtrarPlataforma('pc')">
+            PC
+        </a>
+        <a href="#" class="cat-link" onclick="filtrarPlataforma('playstation')">
+            PLAYSTATION
+        </a>
+        <a href="#" class="cat-link" onclick="filtrarPlataforma('xbox')">
+            XBOX
+        </a>
+        <a href="#" class="cat-link" onclick="mostrarTodos()">
+            CATÁLOGO
+        </a>
+        <div class="dropdown">
+            <a href="#" class="cat-link">CATEGORIAS ▾</a>
+            <div class="dropdown-content">
+                <a href="#" onclick="filtrarCategoria('acao')">
+                    AÇÃO
+                </a>
+                <a href="#" onclick="filtrarCategoria('aventura')">
+                    AVENTURA
+                </a>
+                <a href="#" onclick="filtrarCategoria('rpg')">
+                    RPG
+                </a>
+                <a href="#" onclick="filtrarCategoria('estrategia')">
+                    ESTRATÉGIA
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
