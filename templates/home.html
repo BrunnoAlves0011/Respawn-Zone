@@ -11,146 +11,41 @@
 
 <body>
     <div id="container-topo"></div>
-    <div id="container-topo"></div>
     <header>
         <section class="main-banner" id="main-banner">
-
-    <div class="banner-item ativo"
-         style="background-image: url('/static/img/elden.jpg')">
-
-        <div class="banner-content">
-
-            <span class="badge">DESTAQUE DA SEMANA</span>
-
-            <h1>Elden Ring: Shadow of the Erdtree</h1>
-
-            <p>Shadow of the Erdtree é a expansão de Elden Ring que leva os jogadores ao Reino das Sombras. Explore novas áreas, enfrente chefes desafiadores e descubra os mistérios envolvendo Miquella em uma jornada sombria e épica.</p>
-
-            <div class="banner-actions">
-
-                <a href="#"
-                   class="btn-primary"
-                   onclick="comprarJogo(1)">
-                   COMPRAR AGORA
-                </a>
-
+            {% for item in banner %}
+            <div class="banner-item ativo" style="background-image: url('{{ item.img }}')">
+                <div class="banner-content">
+                    <span class="badge">DESTAQUE DA SEMANA</span>
+                    <h1>{{ item.nome }}</h1>
+                    <p>{{ item.desc }}</p>
+                    <div class="banner-actions">
+                        <a href="#" class="btn-primary" onclick="comprarJogo('{{ item.id }}')">
+                            COMPRAR AGORA
+                        </a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const banners = document.querySelectorAll(".banner-item");
 
-        </div>
-    </div>
+                if (!banners.length) return;
+                let index = 0;
 
-    <div class="banner-item"
-         style="background-image: url('/static/img/Resident\ Evil\ Requiem.jpg')">
+                banners.forEach(b => b.classList.remove("ativo"));
+                banners[0].classList.add("ativo");
 
-        <div class="banner-content">
-
-            <span class="badge">DESTAQUE DA SEMANA</span>
-
-            <h1>Resident Evil Requiem</h1>
-
-            <p>O novo capítulo da franquia Resident Evil traz terror intenso, sobrevivência e uma experiência cinematográfica extremamente imersiva.</p>
-
-            <div class="banner-actions">
-
-                <a href="#"
-                   class="btn-primary"
-                   data-nome="Jogo 6"
-                   onclick="comprarJogo(6)">
-                   COMPRAR AGORA
-                </a>
-
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-    <div class="banner-item"
-         style="background-image: url('/static/img/cyberpunk.jpg')">
-
-        <div class="banner-content">
-
-            <span class="badge">DESTAQUE DA SEMANA</span>
-
-            <h1>Cyberpunk 2077</h1>
-
-            <p>Explore Night City em um RPG futurista repleto de ação, implantes cibernéticos e escolhas que alteram o destino da cidade.</p>
-
-            <div class="banner-actions">
-
-                <a href="#"
-                   class="btn-primary"
-                   data-nome="Jogo 8"
-                   onclick="comprarJogo(8)">
-                   COMPRAR AGORA
-                </a>
-
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-     <div class="banner-item"
-         style="background-image: url('/static/img/fc26.webp')">
-
-        <div class="banner-content">
-
-            <span class="badge">DESTAQUE DA SEMANA</span>
-
-            <h1>EA SPORTS FC 26</h1>
-
-            <p>Monte seu elenco dos sonhos e dispute partidas intensas com gráficos realistas e jogabilidade refinada.</p>
-
-            <div class="banner-actions">
-
-                <a href="#"
-                   class="btn-primary"
-                   data-nome="Jogo 14"
-                   onclick="comprarJogo(14)">
-                   COMPRAR AGORA
-                </a>
-
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-</section>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const banners = document.querySelectorAll(".banner-item");
-
-    if (!banners.length) return;
-
-    let index = 0;
-
-    // garante estado inicial
-    banners.forEach(b => b.classList.remove("ativo"));
-    banners[0].classList.add("ativo");
-
-    setInterval(() => {
-        banners[index].classList.remove("ativo");
-
-        index = (index + 1) % banners.length;
-
-        banners[index].classList.add("ativo");
-
-    }, 4000);
-
-});
-</script>
-</section>
+                setInterval(() => {
+                    banners[index].classList.remove("ativo");
+                    index = (index + 1) % banners.length;
+                    banners[index].classList.add("ativo")
+                }, 4000);
+            });
+        </script>
+        </section>
     </header>
     <main>
         <section class="jogos">
@@ -188,7 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
             {% endfor %}
         </section>
     </main>
-    <!-- <div id="container-cards"></div> -->
     <div id="container-footer"></div>
     <script>
         fetch("/static/home/header.html")
@@ -198,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ativarPesquisa();
                 // atualizarLogin();
                 carregaUsuario();
-            });        
+            });
         fetch("/static/home/cards.html")
             .then(response => response.text())
             .then(data => {

@@ -40,12 +40,7 @@ def get_db():
 # Tela Inicial
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
-    return RedirectResponse(url="/home", status_code=200)
-#     print(request.session.get("logged_in"))
-#     if request.session.get("logged_in"):
-#         return templates.TemplateResponse("signin.html", {"request": request}, Form=Form)
-#     else:
-#         return templates.TemplateResponse("home.html", {"request": request})
+    return templates.TemplateResponse("home.html", {"request": request})
 
 
 
@@ -53,12 +48,12 @@ def home(request: Request):
 @app.get("/home", response_class=HTMLResponse)
 def homePage(request: Request, db: Session = Depends(get_db)):
     jogos = db.query(Jogos).all()
-    banner = jogos[0]
+    indice = [0, 5, 7, 13]
+    banner = [jogos[i] for i in indice if i < len(jogos)]
 
     if request.session.get("logged_in"):
         flag = True
-        # username = request.session["username"]
-        username = 'Teste'
+        username = request.session["username"]
         return templates.TemplateResponse("home.html", {"request": request, "jogos": jogos, "banner": banner, "flag": flag, "username": username})
     else:
         flag = False
@@ -84,6 +79,7 @@ def comoAtivar(request: Request, db: Session = Depends(get_db)):
 async def gamePage(id: int, request: Request, db: Session = Depends(get_db)):
     jogo = db.query(Jogos).filter_by(id=id).first()
     return templates.TemplateResponse("jogos.html", {"request": request, "jogo": jogo})
+
 
 
 # Tela Adicionar Jogo
@@ -250,39 +246,7 @@ def logout(request: Request):
 def finalizar(request: Request, db: Session = Depends(get_db)):
     return templates.TemplateResponse("finalizar.html", {"request": request})
 
-# Ação Del Conta
-# @app.delete("/perfil/excluir-conta/{user}")
-# def deletar_conta(request: Request, user: str, db: Session = Depends(get_db)):
-#     perfil = db.query(Perfil).filter_by(username=user).delete()
-
-#     users = db.query(Users).filter_by(username=user).delete()
-
-#     if not perfil:
-#         raise HTTPException(status_code=404, detail="Perfil não encontrado")
-    
-#     tarefas = db.query(Tarefas).filter_by(user=user).delete()
-
-#     db.commit()
-
-#     logout()
-
-#     return {"message": "Tarefa excluída com sucesso"}
-
 
 
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
-
-from fastapi.responses import HTMLResponse
-from fastapi import Request
-
-@app.get("/quemsomos", response_class=HTMLResponse)
-def quem_somos(request: Request):
-    return templates.TemplateResponse("quemsomos.html", {"request": request})
-
-from fastapi.staticfiles import StaticFiles
-
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-
-
