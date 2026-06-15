@@ -1,5 +1,5 @@
 -- SQLite
-INSERT INTO jogos (id, nome, `desc`, img, categoria, plataforma, preco, precod, desconto)
+INSERT INTO jogos (id, nome, `desc`, img, categoria, plataforma, precod, preco, desconto)
 VALUES 
 (
     1,
@@ -13,7 +13,7 @@ VALUES
     20
 );
 
-INSERT INTO jogos (id, nome, `desc`, img, categoria, plataforma, preco, precod, desconto)
+INSERT INTO jogos (id, nome, `desc`, img, categoria, plataforma, precod, preco, desconto)
 VALUES 
 (
     2,
